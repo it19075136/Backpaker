@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant">
+
+        <GridView
+            android:id="@+id/gridview"
+            android:numColumns="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp">
+
+
+        </GridView>
+
+</RelativeLayout>
+<!--<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--android:id="@+id/add_guides"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--android:layout_gravity="bottom|end"-->
+<!--android:layout_marginStart="32dp"-->
+<!--android:layout_marginLeft="32dp"-->
+<!--android:layout_marginTop="32dp"-->
+<!--android:layout_marginEnd="32dp"-->
+<!--android:layout_marginRight="32dp"-->
+<!--android:layout_marginBottom="32dp"-->
+<!--android:checkable="true"-->
+<!--android:src="@drawable/ic_baseline_place_24"-->
+<!--app:backgroundTint="@color/colorPrimary"-->
+<!--app:fabSize="normal"-->
+<!--app:icon="@drawable/ic_baseline_add_location_24" />-->
+
+<!--    <GridView-->
+<!--        android:id="@+id/gridview"-->
+<!--        android:numColumns="1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="411dp"-->
+<!--        android:layout_marginRight="411dp"-->
+<!--        android:layout_marginBottom="731dp"-->
+<!--        android:horizontalSpacing="1dp"-->
+<!--        android:verticalSpacing="1dp"></GridView>-->
+    <!--    <TextView-->
+<!--        android:id="@+id/textView15"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:text="@string/txtlocalGuides"-->
+<!--        android:textColor="#09FF13"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <RatingBar-->
+<!--        android:id="@+id/ratingBar"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="52dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15" />-->
+
+<!--    <RatingBar-->
+<!--        android:id="@+id/ratingBar2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="60dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginRight="8dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageView8"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView33" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView3"-->
+<!--        android:layout_width="136dp"-->
+<!--        android:layout_height="237dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="26dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15"-->
+<!--        app:srcCompat="@drawable/man" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView8"-->
+<!--        android:layout_width="144dp"-->
+<!--        android:layout_height="230dp"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/imageView3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageView3"-->
+<!--        app:srcCompat="@drawable/man" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView30"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="@string/txtPasindu"-->
+<!--        android:textColor="#0C0C0C"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageView3"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView32"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView31"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="76dp"-->
+<!--        android:layout_marginRight="76dp"-->
+<!--        android:text="@string/txt25"-->
+<!--        android:textColor="#0C0C0C"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView30"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView32"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/txtpasindugmail.com"-->
+<!--        android:textColor="#050505"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView33"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView30" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView33"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:layout_marginEnd="128dp"-->
+<!--        android:layout_marginRight="128dp"-->
+<!--        android:text="@string/txt0716463388"-->
+<!--        android:textColor="#0B0A0A"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView32" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView34"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/txtnamal"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView36"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView35"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="52dp"-->
+<!--        android:layout_marginLeft="52dp"-->
+<!--        android:text="@string/txt32"-->
+<!--        android:textColor="#171515"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView34"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.031"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView34" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView36"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="@string/txt1namalgamil.com"-->
+<!--        android:textColor="#0E0E0E"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView37"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView34" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView37"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginLeft="24dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="@string/txt0717762236"-->
+<!--        android:textColor="#0E0E0E"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imageView8"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView36" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button17"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="36dp"-->
+<!--        android:layout_marginLeft="36dp"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="#07EA10"-->
+<!--        android:text="@string/txtCreateProfile"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageView8" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button18"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="128dp"-->
+<!--        android:layout_marginLeft="128dp"-->
+<!--        android:background="#F40C0C"-->
+<!--        android:text="@string/txtDelete"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/button17"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/button17" />-->
+
+
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:id="@+id/add_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/add_guides_form"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|end"-->
+<!--            android:clickable="true"-->
+<!--            android:src="@drawable/ic_baseline_person_add_24"-->
+<!--            android:layout_margin="32dp"-->
+<!--            android:text="Add data"-->
+<!--            app:backgroundTint="@color/colorPrimary"-->
+<!--            app:icon="@drawable/ic_baseline_add_24"-->
+<!--            app:fabSize="normal" />-->
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:id="@+id/container_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
+
+<!--        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom|end"-->
+<!--            android:clickable="true"-->
+<!--            android:src="@drawable/ic_baseline_add_24"-->
+<!--            android:layout_margin="32dp"-->
+<!--            android:text="Add data"-->
+<!--            app:backgroundTint="@color/colorPrimary"-->
+<!--            app:icon="@drawable/ic_baseline_add_24"-->
+<!--            app:fabSize="normal" />-->
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+

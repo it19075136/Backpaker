@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant"
+    >
+
+        <TextView
+            android:id="@+id/griddata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:text="Apple"
+            android:textSize="30dp"
+            android:textStyle="normal|italic" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/griddata_NIC"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/imageView"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginTop="35dp"-->
+<!--            android:text_align="center"-->
+<!--            android:text="Apple"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="normal|italic" />-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/griddata_email"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/griddata_NIC"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginTop="35dp"-->
+<!--            android:text_align="center"-->
+<!--            android:text="Apple"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="normal|italic" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/griddata_phoneNO"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/griddata_email"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginTop="35dp"-->
+<!--            android:text_align="center"-->
+<!--            android:text="Apple"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="normal|italic" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/griddata_gender"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/griddata_phoneNO"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_marginTop="35dp"-->
+<!--            android:text_align="center"-->
+<!--            android:text="Apple"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="normal|italic" />-->
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/griddata"
+            android:layout_marginTop="38dp"
+            android:src="@drawable/pic1" />
+
+
+</RelativeLayout>

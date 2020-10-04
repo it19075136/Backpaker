@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    tools:context=".ViewLocationDetailsFragment"
+    android:paddingBottom="35dp">
+<!--    android:background="@drawable/gradiant"-->
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/NoofDaysWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Enter Days"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/NoofDays"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/AccommondationWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Enter Accommondation"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NoofDaysWrap">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Accommondation"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RoadConditionWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Enter Road Condition"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AccommondationWrap"
+        app:layout_constraintTop_toBottomOf="@+id/AccommondationWrap">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/RoadCondition"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RouteWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Enter Route"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AccommondationWrap"
+        app:layout_constraintTop_toBottomOf="@+id/RoadConditionWrap">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Route"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/noteWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/txt3"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AccommondationWrap"
+        app:layout_constraintTop_toBottomOf="@+id/RouteWrap">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/note"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/weatherWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Location Weather"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AccommondationWrap"
+        app:layout_constraintTop_toBottomOf="@+id/noteWrap">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weather"
+            android:layout_width="390dp"
+            android:layout_height="59dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/permissionWrap"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="permission"
+        app:boxBackgroundMode="outline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/AccommondationWrap"
+        app:layout_constraintTop_toBottomOf="@+id/weatherWrap">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/permission"
+            android:layout_width="390dp"
+            android:layout_height="59dp" />
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/txtUpdate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/permission" />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--    </androidx.core.widget.NestedScrollView>-->
+<!--    <EditText-->
+<!--        android:id="@+id/textView7"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginLeft="8dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:text="@string/txtLocalRestaurant"-->
+<!--        android:textColor="#070707"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView6"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView5" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView6"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txtAccommodation"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView7"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView10" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/textView11"-->
+<!--        android:layout_width="224dp"-->
+<!--        android:layout_height="89dp"-->
+<!--        android:layout_marginEnd="4dp"-->
+<!--        android:layout_marginRight="4dp"-->
+<!--        android:text="@string/txt1"-->
+<!--        android:textColor="#070707"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView10"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView10" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/textView5"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="144dp"-->
+<!--        android:layout_marginRight="144dp"-->
+<!--        android:text="@string/txtone"-->
+<!--        android:textColor="#070707"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView4"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button7" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txtNumberOfDays"-->
+<!--        android:textColor="#0B0A0A"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView5"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView6" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        android:text="@string/txtRoadConditions"-->
+<!--        android:textColor="#0B0A0A"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView6" />-->
+<!--    -->
+<!--    -->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/sdfs"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginEnd="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginRight="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="Number of Days"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="italic"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.526"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toEndOf="@+id/textView15"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="MissingConstraints"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:layout_editor_absoluteY="31dp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/EditDays"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:autofillHints=""&ndash;&gt;-->
+<!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="@string/AddDrivetrain"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:inputType="textPersonName"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;         />&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    />app:layout_constraintTop_toBottomOf="@+id/EditDays"&ndash;&gt;&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/Accommodation"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginEnd="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginRight="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="Accommodation"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="italic"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.526"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toEndOf="@+id/textView15"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="MissingConstraints"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:layout_editor_absoluteY="31dp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/EditAccommodation"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:autofillHints=""&ndash;&gt;-->
+<!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="@string/AddDrivetrain"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:inputType="textPersonName"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/EditAccommodation" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/viewTravelTime"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="87dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="87dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginEnd="116dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginRight="116dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="@string/TravelTime"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="italic"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toEndOf="@+id/textView17"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/viewDestination" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/viewDestination"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="93dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="93dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginEnd="116dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginRight="116dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="@string/Destination"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="italic"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.0"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toEndOf="@+id/textView16"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/viewFuelCost" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/days"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="Number of Days"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="MissingConstraints"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:layout_editor_absoluteY="31dp" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/textView16"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="76dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="19dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="@string/Destination"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView15" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/textView17"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="82dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginStart="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginLeft="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="@string/TravelTime"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView16" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/textView25"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="12dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:text="@string/VehicleDetails"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:textStyle="bold"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.11"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/upDestination"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/upLocation"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:autofillHints=""&ndash;&gt;-->
+<!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="@string/AddLocation"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:inputType="textPersonName"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.502"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView17"&ndash;&gt;-->
+<!--&lt;!&ndash;        tools:ignore="MissingConstraints" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/upDestination"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:autofillHints=""&ndash;&gt;-->
+<!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="@string/AddDest"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:inputType="textPersonName"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.502"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/upLocation" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/upVehType"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:autofillHints=""&ndash;&gt;-->
+<!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="@string/AddVehType"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:inputType="textPersonName"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintHorizontal_bias="0.502"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/textView25" />&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <EditText&ndash;&gt;-->
+<!--&lt;!&ndash;        android:id="@+id/upFuelType"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:layout_marginTop="20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:autofillHints=""&ndash;&gt;-->
+<!--&lt;!&ndash;        android:ems="10"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:hint="@string/AddFuelType"&ndash;&gt;-->
+<!--&lt;!&ndash;        android:inputType="textPersonName"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@+id/upVehType" />&ndash;&gt;-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView9"-->
+<!--        android:layout_width="63dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:text="@string/txtRoute"-->
+<!--        android:textColor="#090909"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:layout_editor_absoluteY="389dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView21"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="304dp"-->
+<!--        android:text="@string/txtNeeded"-->
+<!--        android:textColor="#0B0B0B"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.099"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView22" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView22"-->
+<!--        android:layout_width="93dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="76dp"-->
+<!--        android:text="@string/txtPermission"-->
+<!--        android:textColor="#040404"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView19" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView19"-->
+<!--        android:layout_width="118dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:text="@string/txtlocationweather"-->
+<!--        android:textColor="#040404"-->
+<!--        android:textSize="14sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView8"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView18" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView20"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txtRainy"-->
+<!--        android:textColor="#0B0B0B"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView19"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.096"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView19" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView16"-->
+<!--        android:layout_width="337dp"-->
+<!--        android:layout_height="102dp"-->
+<!--        android:layout_marginStart="120dp"-->
+<!--        android:layout_marginLeft="120dp"-->
+<!--        android:text="@string/txt2"-->
+<!--        android:textColor="#070707"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView9"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView18"-->
+<!--        android:layout_width="372dp"-->
+<!--        android:layout_height="31dp"-->
+<!--        android:text="@string/txt4"-->
+<!--        android:textColor="#070707"-->
+<!--        android:textSize="14sp"-->
+<!--        tools:layout_editor_absoluteX="41dp"-->
+<!--        tools:layout_editor_absoluteY="570dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView8"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:text="@string/txt3"-->
+<!--        android:textColor="#090909"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView9"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView16" />-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
