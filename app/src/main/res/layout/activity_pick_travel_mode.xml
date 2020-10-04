@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtEasy"
+                    ></com.google.android.material.tabs.TabItem>
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtModerate"></com.google.android.material.tabs.TabItem>
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txHard"></com.google.android.material.tabs.TabItem>
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+    </androidx.viewpager.widget.ViewPager>
+        
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton4"-->
+<!--        android:layout_width="343dp"-->
+<!--        android:layout_height="94dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/button13"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageButton3"-->
+<!--        app:layout_constraintVertical_bias="0.035"-->
+<!--        app:srcCompat="@android:drawable/ic_menu_gallery" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton2"-->
+<!--        android:layout_width="343dp"-->
+<!--        android:layout_height="94dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/imageButton3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView49"-->
+<!--        app:srcCompat="@android:drawable/ic_menu_gallery" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView12"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="@string/txtPickATravelMode"-->
+<!--        android:textColor="#08F312"-->
+<!--        android:textSize="24sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button12"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:background="#1F9824"-->
+<!--        android:text="@string/txtEdit"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/button13"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button13"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#F40404"-->
+<!--        android:text="@string/txtDelete"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/button14"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/button14"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="32dp"-->
+<!--        android:background="#08FF12"-->
+<!--        android:text="@string/txtAdd"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.567"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/button13" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView39"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:text="@string/txtPeacockHill"-->
+<!--        android:textColor="#070707"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView41"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txtKalabokka"-->
+<!--        android:textColor="#050505"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageButton4"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton3"-->
+<!--        android:layout_width="343dp"-->
+<!--        android:layout_height="94dp"-->
+<!--        android:layout_marginTop="36dp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/imageButton4"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageButton2"-->
+<!--        app:srcCompat="@android:drawable/ic_menu_gallery" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView44"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txtMadulsima"-->
+<!--        android:textColor="#020202"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView45"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="64dp"-->
+<!--        android:layout_marginLeft="64dp"-->
+<!--        android:text="@string/txt100Likes"-->
+<!--        android:textColor="#1536EF"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView39"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView39" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView46"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txt87Likes"-->
+<!--        android:textColor="#1334EA"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView44"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView45" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView47"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/txt67Likes"-->
+<!--        android:textColor="#0B2EF1"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/textView41"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView46" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView49"-->
+<!--        android:layout_width="251dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView12" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnHard"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginLeft="4dp"-->
+<!--        android:text="@string/txHard"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/btnModerate"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/btnModerate" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnEasy"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="64dp"-->
+<!--        android:layout_marginLeft="64dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="@string/txtEasy"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView12" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnModerate"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginLeft="4dp"-->
+<!--        android:text="@string/txtModerate"-->
+<!--        app:layout_constraintBaseline_toBaselineOf="@+id/btnEasy"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/btnEasy" />-->
+
+<!--    <SearchView-->
+<!--        android:layout_width="24dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/textView49"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/textView49" />-->
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

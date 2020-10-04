@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant"
+    tools:context=".ViewLocationDetailsFragment">
+
+    <TextView
+        android:id="@+id/viewNoofDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Number Of Dates"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewNoofDaysDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:text="One"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toEndOf="@+id/viewNoofDays"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewAccommodation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="Accommodation"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/viewNoofDays"
+        app:layout_constraintTop_toBottomOf="@+id/viewNoofDays"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewAccommodationDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginEnd="236dp"
+        android:layout_marginRight="236dp"
+        android:text="One"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewAccommodation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewAccommodation"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewRoadCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Road Condition"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/viewAccommodation"
+        app:layout_constraintTop_toBottomOf="@+id/viewAccommodation"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewRoadConditionDetails"
+        android:layout_width="282dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="@string/txt1"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewRoadCondition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewRoadCondition"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/txtRoute"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/viewRoadCondition"
+        app:layout_constraintTop_toBottomOf="@+id/viewRoadCondition"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewRouteDetails"
+        android:layout_width="339dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="@string/txt2"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewRoute"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewRoute"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/txt3"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/viewRoute"
+        app:layout_constraintTop_toBottomOf="@+id/viewRouteDetails"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewNoteDetails"
+        android:layout_width="339dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/txt4"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/viewNote"
+        app:layout_constraintTop_toBottomOf="@+id/viewNote"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/viewWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtlocationweather"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/viewNoteDetails"
+        app:layout_constraintTop_toBottomOf="@+id/viewNoteDetails"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/viewWeatherDetails"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:text="@string/txtRainy"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewWeather"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/viewWeather"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewPermssion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtPermission"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/viewWeather"
+        app:layout_constraintTop_toBottomOf="@+id/viewWeather"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/viewPermssionDetails"
+        android:layout_width="211dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginRight="100dp"
+        android:text="@string/txtNeeded"
+        android:textStyle="italic"
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewPermssion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/viewPermssion"
+        tools:ignore="MissingConstraints" />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewTravelTime"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="87dp"-->
+    <!--        android:layout_marginLeft="87dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:layout_marginEnd="116dp"-->
+    <!--        android:layout_marginRight="116dp"-->
+    <!--        android:text="@string/TravelTime"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/textView17"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewDestination" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewDestination"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="93dp"-->
+    <!--        android:layout_marginLeft="93dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:layout_marginEnd="116dp"-->
+    <!--        android:layout_marginRight="116dp"-->
+    <!--        android:text="@string/Destination"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/textView16"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewFuelCost" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView15"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="56dp"-->
+    <!--        android:layout_marginLeft="56dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:text="@string/FuelAvg"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView16"-->
+    <!--        android:layout_width="76dp"-->
+    <!--        android:layout_height="19dp"-->
+    <!--        android:layout_marginStart="56dp"-->
+    <!--        android:layout_marginLeft="56dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:text="@string/Destination"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView15" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView17"-->
+    <!--        android:layout_width="82dp"-->
+    <!--        android:layout_height="20dp"-->
+    <!--        android:layout_marginStart="56dp"-->
+    <!--        android:layout_marginLeft="56dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:text="@string/TravelTime"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView16" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView5"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="36dp"-->
+    <!--        android:text="@string/YourLocation"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/viewLocation2"-->
+    <!--        app:layout_constraintHorizontal_bias="0.248"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView17"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView6"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="28dp"-->
+    <!--        android:text="@string/Destination"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/viewDestEdit2"-->
+    <!--        app:layout_constraintHorizontal_bias="0.261"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView5" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewLocation2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="36dp"-->
+    <!--        android:layout_marginEnd="84dp"-->
+    <!--        android:layout_marginRight="84dp"-->
+    <!--        android:text="@string/YourLocation"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewTravelTime"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewDestEdit2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="28dp"-->
+    <!--        android:layout_marginEnd="96dp"-->
+    <!--        android:layout_marginRight="96dp"-->
+    <!--        android:text="@string/Destination"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewLocation2"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView8"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:text="@string/VehicleDetails"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.123"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView6"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView10"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:text="@string/VehicleType"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/viewVehicleType2"-->
+    <!--        app:layout_constraintHorizontal_bias="0.276"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView8" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewVehicleType2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:layout_marginEnd="92dp"-->
+    <!--        android:layout_marginRight="92dp"-->
+    <!--        android:text="@string/VehicleType"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView8"-->
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView12"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="36dp"-->
+    <!--        android:text="@string/FuelType"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/viewFuelType2"-->
+    <!--        app:layout_constraintHorizontal_bias="0.248"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView13" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewFuelType2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="33dp"-->
+    <!--        android:layout_marginEnd="112dp"-->
+    <!--        android:layout_marginRight="112dp"-->
+    <!--        android:text="@string/FuelType"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewDrivetrain2" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/viewDrivetrain2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        android:layout_marginEnd="112dp"-->
+    <!--        android:layout_marginRight="112dp"-->
+    <!--        android:text="@string/Drivetrain"-->
+    <!--        android:textStyle="italic"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/viewVehicleType2" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView13"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="28dp"-->
+    <!--        android:text="@string/Drivetrain"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/viewDrivetrain2"-->
+    <!--        app:layout_constraintHorizontal_bias="0.243"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView10" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,110 +1,68 @@
 <resources>
-    <string name="app_name">Spark</string>
-    <string name="RegHotel">Hotel Register</string>
-    <string name="htlName">Hotel Name</string>
-    <string name="roomCount">Room Count</string>
-    <string name="contact">Contact Number</string>
-    <string name="email">Email</string>
-    <string name="roomAC">A/C</string>
-    <string name="nonAC">Non A/C</string>
-    <string name="htlDes">Description</string>
-    <string name="avaRoomtype">Available Room Type</string>
-    <string name="submitBtn">Add Hotel</string>
-    <string name="htlLocation">Location</string>
-    <string name="updHotel">Update</string>
-    <string name="dltHotel">Delete</string>
-    <string name="viewHotel">View</string>
-    <string name="htlbook">Hotel Booking</string>
-    <string name="gu_Name">Enter Your Name</string>
-    <string name="gu_Con">Enter Contact Number</string>
-    <string name="gus_Email">Enter Email Address</string>
-    <string name="roomType">Room Type</string>
-    <string name="num_rooms">Rooms</string>
-    <string name="mem_count">Number of Guests</string>
-    <string name="num_nights">Number of Nights</string>
-    <string name="bookNow">Book Now</string>
-    <string name="showdata">Booking Info</string>
-    <string name="my_HotelDetails">My Hotel Details</string>
-    <string name="fdHotelHed">Find Your Hotel</string>
-    <string name="search_bar">Add Your Location</string>
-    <string name="htl_selector">Select Your Hotel</string>
+    <string name="app_name">MAD</string>
+    <string name="txtGallery">Gallery</string>
+    <string name="txtDelete">Delete</string>
+    <string name="txtAdd">Add</string>
+    <string name="txtMap">Map</string>
+    <string name="txtAddToFav" />
+    <string name="txtBtnGallery">Gallery</string>
+    <string name="txtCampingGear" />
+    <string name="txtBookaRoom">Book a Room</string>
+    <string name="txtCalculateRoute">Calculate Route</string>
+    <string name="txtbtnAddToFav">Add to Fav</string>
+    <string name="txtbtnCampingGear">Camping Gear</string>
+    <string name="txtNumberOfDays">"Number of Days "</string>
+    <string name="txtone">"- One   "</string>
+    <string name="txtAccommodation">"Accommodation "</string>
+    <string name="txtLocalRestaurant">" - Local Restaurant"</string>
+    <string name="txtRoadConditions">Road Conditions</string>
+    <string name="txt1">- Vehicles with a good ground \t   clearence can go (Alto, Vitz and 4WDs)</string>
+    <string name="txtRoute">"Route "</string>
+    <string name="txt2"><![CDATA[- Colombo -> Pussellawa -> Para deka -> Doragala -> Monarakanda -> Doragala -> Kotmale Maha Seya (15Km) -> Ulapane -> Nawalapitiya -> Katabolawa -> Nawalapitiya -> Mapakanda -> Galboda -> Hatton ->Colombo]]></string>
+    <string name="txt3">Tips, Notes and Special remark\t</string>
+    <string name="txt4">Take Water  Do not carry Plastic items (Minimize), Make sure you bring back everything you took</string>
+    <string name="txtlocationweather">location weather</string>
+    <string name="txtRainy">-Rainy</string>
+    <string name="txtPermission">permission</string>
+    <string name="txtNeeded">-needed</string>
+    <string name="txtRequestPermissiontovisit">Request Permission to visit</string>
+    <string name="txtLocalguidesinfo">Local guides info</string>
+    <string name="txtEditDetails">Edit Details</string>
+    <string name="txtPickATravelMode">Pick A Travel Mode</string>
+    <string name="txtEdit">Edit</string>
+    <string name="txtpermissionequest">permission  request</string>
+    <string name="txtName">Name:</string>
+    <string name="txtNICNumber">NIC number:</string>
+    <string name="txtPhoneNumber">Phone number:</string>
+    <string name="txtEmail">Email:</string>
+    <string name="txtDate">Date:</string>
+    <string name="txtSend">Send</string>
+    <string name="txtAddATravelLocation">Add A Travel Location</string>
+    <string name="txtLocationName">Location Name</string>
+    <string name="txtPickAMode">PickAMode</string>
+    <string name="txt1PickAMode">Pick A Mode</string>
+    <string name="txtEasy">Easy</string>
+    <string name="txtModerate">Moderate</string>
+    <string name="txHard">Hard</string>
+    <string name="txtSubmit">Submit</string>
+    <string name="txtlocalGuides">Local Guides</string>
+    <string name="txtPasindu">Pasindu</string>
+    <string name="txt25">25</string>
+    <string name="txtpasindugmail.com">Pasindu@gmail.com</string>
+    <string name="txt0716463388">0716463388</string>
+    <string name="txtnamal">Namal</string>
+    <string name="txt32">32</string>
+    <string name="txtnamalgamil.com">namalgamil.com</string>
+    <string name="txt1namalgamil.com">namal@gamil.com</string>
+    <string name="txt0717762236">0717762236</string>
+    <string name="txtCreateProfile">CreateProfile</string>
+    <string name="txtPeacockHill">Peacock Hill</string>
+    <string name="txtMadulsima">Madulsima</string>
+    <string name="txtKalabokka">Kalabokka</string>
+    <string name="txt100Likes">100Likes</string>
+    <string name="txt87Likes">87Likes</string>
+    <string name="txt67Likes">67Likes</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="AddTripHeading">Add Trip Details</string>
-    <string name="YourLocation">Your Location</string>
-    <string name="Destination">Destination</string>
-    <string name="VehicleType">Vehicle Type</string>
-    <string name="FuelType">Fuel Type</string>
-    <string name="Drivetrain">Drivetrain</string>
-    <string name="calculateBtn">CALCULATE</string>
-    <string name="DeleteBtn">DELETE</string>
-    <string name="SaveBtn">SAVE DETAILS</string>
-    <string name="ResetBtn">RESET</string>
-    <string name="AddLocation">Enter Location</string>
-    <string name="AddDest">Enter Destination</string>
-    <string name="AddVehType">Enter type of your vehicle</string>
-    <string name="AddFuelType">Enter Fuel Type</string>
-    <string name="AddDrivetrain">Enter Drivetrain</string>
-    <string name="ShowTrips">My Trips</string>
-    <string name="TripDetails">Trip Details</string>
-    <string name="ViewTrips">View Trips</string>
-    <string name="editDetails">Edit Details</string>
-    <string name="FuelAvg">Fuel Cost( Average )</string>
-    <string name="TravelTime">Travel Time</string>
-    <string name="VehicleDetails">Vehicle Details</string>
-    <string name="page_title">Trip Details</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="btnUpdateDetails">Update Details</string>
-    <string name="diesel">Diesel</string>
-    <string name="petrol">Petrol</string>
-    <string name="hybrid">Hybrid</string>
-    <string name="select_fuel_type">Select Fuel Type</string>
-    <string name="select">select</string>
-    <string name="distance">Distance</string>
-    <string name="select_destinatiom">select destinatiom</string>
-    <string name="conHtl">Contact Hotel</string>
-    <string name="findHtl">Find Hotel</string>
-    <array name="lamps">
-        <item>Yes</item>
-        <item>No</item>
-    </array>
-
-    <array name="cups">
-        <item>Yes</item>
-        <item>No</item>
-    </array>
-
-    <array name="hammer">
-        <item>Yes</item>
-        <item>No</item>
-    </array>
-
-    <array name="tables">
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-    </array>
-
-    <array name="gas">
-        <item>Yes</item>
-        <item>No</item>
-    </array>
-
-    <array name="tentSize">
-        <item>Small</item>
-        <item>Large</item>
-        <item>Extra Large</item>
-    </array>
-
-    <array name="tentNumber">
-        <item>One</item>
-        <item>Two</item>
-        <item>Three</item>
-        <item>Four</item>
-        <item>Five</item>
-        <item>Six</item>
-        <item>Seven</item>
-        <item>Eight</item>
-    </array>
-
+    <string name="txtUpdate">Update</string>
 </resources>
