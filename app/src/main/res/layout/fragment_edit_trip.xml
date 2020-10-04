@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    tools:context=".ViewTripFragment">
+
+
+    <!--        &lt;!&ndash; Scrollable content &ndash;&gt;-->
+
+    <!--    </androidx.core.widget.NestedScrollView>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/viewFuelCost"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="56dp"-->
+<!--        android:layout_marginRight="56dp"-->
+<!--        android:text="@string/FuelAvg"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.851"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView15"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteY="31dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/viewTravelTime"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="87dp"-->
+<!--        android:layout_marginLeft="87dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginEnd="116dp"-->
+<!--        android:layout_marginRight="116dp"-->
+<!--        android:text="@string/TravelTime"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView17"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewDistance" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/viewDistance"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="93dp"-->
+<!--        android:layout_marginLeft="93dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginEnd="116dp"-->
+<!--        android:layout_marginRight="116dp"-->
+<!--        android:text="@string/distance"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textView16"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/viewFuelCost" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView15"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="56dp"-->
+<!--        android:layout_marginLeft="56dp"-->
+<!--        android:text="@string/FuelAvg"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteY="31dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView16"-->
+<!--        android:layout_width="76dp"-->
+<!--        android:layout_height="19dp"-->
+<!--        android:layout_marginStart="56dp"-->
+<!--        android:layout_marginLeft="56dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/distance"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView15" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView17"-->
+<!--        android:layout_width="82dp"-->
+<!--        android:layout_height="20dp"-->
+<!--        android:layout_marginStart="56dp"-->
+<!--        android:layout_marginLeft="56dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/TravelTime"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView16" />-->
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/VehicleDetails"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editDrivetrain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/AddDrivetrain"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        app:boxBackgroundMode="outline"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFuelTypeWrap" >
+        <AutoCompleteTextView
+            android:id="@+id/DrivetrainDrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editFuelTypeWrap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/AddFuelType"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        app:boxBackgroundMode="outline"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editVehicleType" >
+
+        <AutoCompleteTextView
+            android:id="@+id/FuelTypeDrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editVehicleType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/AddVehType"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        app:boxBackgroundMode="outline"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" >
+
+        <AutoCompleteTextView
+            android:id="@+id/VehicleTypeDrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="161dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/Green"
+        android:text="@string/btnUpdateDetails"
+        app:backgroundTint="@color/design_default_color_secondary_variant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editDrivetrain" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

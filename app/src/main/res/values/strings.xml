@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">myapplication</string>
+    <string name="AddTripHeading">Add Trip Details</string>
+    <string name="YourLocation">Your Location</string>
+    <string name="Destination">Destination</string>
+    <string name="VehicleType">Vehicle Type</string>
+    <string name="FuelType">Fuel Type</string>
+    <string name="Drivetrain">Drivetrain</string>
+    <string name="calculateBtn">CALCULATE</string>
+    <string name="DeleteBtn">DELETE</string>
+    <string name="SaveBtn">SAVE DETAILS</string>
+    <string name="ResetBtn">RESET</string>
+    <string name="AddLocation">Enter Location</string>
+    <string name="AddDest">Enter Destination</string>
+    <string name="AddVehType">Enter type of your vehicle</string>
+    <string name="AddFuelType">Enter Fuel Type</string>
+    <string name="AddDrivetrain">Enter Drivetrain</string>
+    <string name="ShowTrips">My Trips</string>
+    <string name="TripDetails">Trip Details</string>
+    <string name="ViewTrips">View Trips</string>
+    <string name="editDetails">Edit Details</string>
+    <string name="FuelAvg">Fuel Cost( Average )</string>
+    <string name="TravelTime">Travel Time</string>
+    <string name="VehicleDetails">Vehicle Details</string>
+    <string name="page_title">Trip Details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnUpdateDetails">Update Details</string>
+    <string name="diesel">Diesel</string>
+    <string name="petrol">Petrol</string>
+    <string name="hybrid">Hybrid</string>
+    <string name="select_fuel_type">Select Fuel Type</string>
+    <string name="select">select</string>
+    <string name="distance">Distance</string>
+    <string name="select_destinatiom">select destinatiom</string>
+</resources>
