@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textAlignment="center"
+    tools:context=".BookHotel"
+    android:background="@drawable/background_gradient">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#78ED7D"
+            android:fontFamily="cursive"
+            android:text="@string/htlbook"
+            android:textAlignment="center"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/guestName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/gu_Name"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart" />
+
+    <EditText
+        android:id="@+id/gusCon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/gu_Con"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/gusEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/gus_Email"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/rmTypelbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/roomType"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/rdgrp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radAC"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="@string/roomAC" />
+
+        <RadioButton
+            android:id="@+id/radNonAC"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="@string/nonAC" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/numRooms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/num_rooms"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/numGuset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/mem_count"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/numNight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/num_nights"
+        android:inputType="textPersonName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="@string/bookNow" />
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_weight="1"
+            android:fontFamily="casual"
+            android:text="@string/showdata" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnUpd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="@string/updHotel" />
+
+        <Button
+            android:id="@+id/btnDel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:text="@string/dltHotel" />
+    </LinearLayout>
+
+</LinearLayout>
