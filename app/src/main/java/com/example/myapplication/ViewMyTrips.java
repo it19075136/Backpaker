@@ -89,7 +89,6 @@ public class ViewMyTrips extends AppCompatActivity {
         destDrop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ChangeFragment(view);
                 db = FirebaseDatabase.getInstance().getReference("Trips").orderByChild("destination").equalTo(destDrop.getText().toString());
                 db.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -112,6 +111,7 @@ public class ViewMyTrips extends AppCompatActivity {
 
                                              }
                 });
+                ChangeFragment(view);
             }
         });
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

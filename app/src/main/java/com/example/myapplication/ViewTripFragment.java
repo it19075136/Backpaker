@@ -2,19 +2,26 @@ package com.example.myapplication;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ViewTripFragment extends Fragment{
 
     View view;
     TextView viewDistance,viewLocation,viewDrivetrain,FuelType,VehicleType,viewDestination,viewTravel,viewFuelCost;
     String id;
+    Button btnDelete;
+    DatabaseReference dbRef;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +35,7 @@ public class ViewTripFragment extends Fragment{
         viewDestination = view.findViewById(R.id.viewDestEdit2);
         viewTravel = view.findViewById(R.id.viewTravelTime);
         viewFuelCost = view.findViewById(R.id.viewFuelCost);
+        btnDelete = view.findViewById(R.id.buttonDelete);
 
         if (this.getArguments() != null){
             viewDistance.setText(this.getArguments().getString("distance"));
@@ -39,8 +47,17 @@ public class ViewTripFragment extends Fragment{
             viewTravel.setText(this.getArguments().getString("travelTime"));
             viewFuelCost.setText(this.getArguments().getString("fuelCost")  );
             id = this.getArguments().getString("id");
-//            Toast.makeText(getContext(),id,Toast.LENGTH_SHORT).show();
         }
+
+        btnDelete.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(id));
+                dbRef.removeValue();
+                Toast.makeText(getContext(), "Trip Deleted...", Toast.LENGTH_SHORT).show();
+            }
+        })
+        );
         return view;
     }
 
