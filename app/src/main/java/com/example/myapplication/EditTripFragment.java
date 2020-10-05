@@ -56,8 +56,8 @@ public class EditTripFragment extends Fragment {
         String[] vehType = new String[]{
                 "SUV-auto",
                 "SUV-manual",
-                "Saloon-auto",
-                "Saloon-manual",
+                "Sedan-auto",
+                "Sedan-manual",
                 "Hatchback-auto",
                 "Hatchback-manual",
                 "Bike"
@@ -121,17 +121,120 @@ public class EditTripFragment extends Fragment {
         return view;
     }
     private void SetFuelCost(Double distance,String vehicleType,String drivetrain,String fuelType){
-        switch (fuelType){
-            case "Diesel":
-                if(vehicleType.equals("SUV-auto") && (drivetrain.equals("4WD") || drivetrain.equals("AWD"))){
-                    trip.setFuelCost(Double.parseDouble(df.format(distance/5.0*128.0 )));
+        switch (vehicleType){
+            case "SUV-auto":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 5.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 5.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 15.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 17.0 * 138.0)));
                 }
                 break;
-            case "Petrol":
+            case "SUV-manual":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 17.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 9.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 9.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
                 break;
-            case "Hybrid":
+            case "Sedan-auto":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 10.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 10.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 17.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
+                break;
+            case "Sedan-manual":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
+                }
+                break;
+            case "Hatchback-auto":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
+                }
+                break;
+            case "Hatchback-manual":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 23.0 * 138.0)));
+                }
+                break;
+            case "Bike":
+                trip.setFuelCost(Double.parseDouble(df.format(distance / 30.0 * 138.0)));
                 break;
             default:
+                trip.setFuelCost(0.0);
                 break;
         }
     }
