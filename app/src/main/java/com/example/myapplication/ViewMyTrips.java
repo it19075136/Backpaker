@@ -58,6 +58,7 @@ public class ViewMyTrips extends AppCompatActivity {
         dbRef.child("Trips").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dests.clear();
                 for (DataSnapshot childSnapshot:snapshot.getChildren()) {
                     String spinnerTrip = childSnapshot.child("destination").getValue(String.class);
                     dests.add(spinnerTrip);
