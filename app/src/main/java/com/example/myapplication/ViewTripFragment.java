@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,22 @@ public class ViewTripFragment extends Fragment{
     String id;
     Button btnDelete;
     DatabaseReference dbRef;
+
+    public interface onDeleteEventListener {
+        public void DeleteEvent(String s);
+    }
+
+    onDeleteEventListener deleteEventListener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            deleteEventListener = (onDeleteEventListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement delete event listener");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +66,16 @@ public class ViewTripFragment extends Fragment{
             viewFuelCost.setText(this.getArguments().getString("fuelCost")  );
             id = this.getArguments().getString("id");
         }
+        else {
+            viewDistance.setText("");
+            viewLocation.setText("");
+            viewDrivetrain.setText("");
+            VehicleType.setText("");
+            FuelType.setText("");
+            viewDestination.setText("");
+            viewTravel.setText("");
+            viewFuelCost.setText("");
+        }
 
         btnDelete.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -55,9 +83,11 @@ public class ViewTripFragment extends Fragment{
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(id));
                 dbRef.removeValue();
                 Toast.makeText(getContext(), "Trip Deleted...", Toast.LENGTH_SHORT).show();
+                deleteEventListener.DeleteEvent(viewDestination.getText().toString());
             }
         })
         );
+
         return view;
     }
 

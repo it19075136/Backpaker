@@ -58,7 +58,7 @@
     <string name="select_fuel_type">Select Fuel Type</string>
     <string name="select">select</string>
     <string name="distance">Distance</string>
-    <string name="select_destinatiom">select destinatiom</string>
+    <string name="select_destination">Select destination( FROM-TO )</string>
     <string name="conHtl">Contact Hotel</string>
     <string name="findHtl">Find Hotel</string>
     <array name="lamps">

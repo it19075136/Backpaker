@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,13 +29,13 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewMyTrips extends AppCompatActivity {
+public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.onDeleteEventListener {
 
     DatabaseReference dbRef;
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch sw;
     Boolean switchCheck = false;
-    List<String> dests;
+    List<String> trips;
     Bundle bundle = new Bundle();
     Trip trip;
     Query db;
@@ -49,7 +50,7 @@ public class ViewMyTrips extends AppCompatActivity {
 
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
 
-        dests = new ArrayList<>();
+        trips = new ArrayList<>();
 
         destinationSelector = findViewById(R.id.destinationSelector);
         destDrop = findViewById(R.id.destinationDrop);
@@ -58,10 +59,10 @@ public class ViewMyTrips extends AppCompatActivity {
         dbRef.child("Trips").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                dests.clear();
+                trips.clear();
                 for (DataSnapshot childSnapshot:snapshot.getChildren()) {
-                    String spinnerTrip = childSnapshot.child("destination").getValue(String.class);
-                    dests.add(spinnerTrip);
+                    Trip ntrip = childSnapshot.getValue(Trip.class);
+                    trips.add(ntrip.Location.concat("-".concat(ntrip.getDestination())));
                 }
             }
 
@@ -72,7 +73,7 @@ public class ViewMyTrips extends AppCompatActivity {
         });
         ArrayAdapter<String> DestinationAdapter = new ArrayAdapter<>(
                 ViewMyTrips.this, R.layout.type_dropdown,
-                dests
+                trips
         );
 
         destDrop.setAdapter(DestinationAdapter);
@@ -94,9 +95,13 @@ public class ViewMyTrips extends AppCompatActivity {
         });
 
         destDrop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, final View view, int i, long l) {
-                db = FirebaseDatabase.getInstance().getReference("Trips").orderByChild("destination").equalTo(destDrop.getText().toString());
+                String SelectedTrip = destDrop.getText().toString();
+                String[] Selected = SelectedTrip.split("-", 2);
+                Toast.makeText(getApplicationContext(),Selected[1],Toast.LENGTH_SHORT).show();
+                db = FirebaseDatabase.getInstance().getReference("Trips").orderByChild("destination").equalTo(Selected[1]);
                 db.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -141,4 +146,23 @@ public class ViewMyTrips extends AppCompatActivity {
 
     }
 
+    @Override
+    public void DeleteEvent(String s) {
+        trips.remove(s);
+        ArrayAdapter<String> DestinationAdapter = new ArrayAdapter<>(
+                ViewMyTrips.this, R.layout.type_dropdown,
+                trips
+        );
+
+        destDrop.setAdapter(DestinationAdapter);
+        destDrop.showDropDown();
+        bundle.clear();
+        Fragment frag;
+        frag = new ViewTripFragment();
+        FragmentManager fm = getSupportFragmentManager();
+        frag.setArguments(bundle);
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragment, frag);
+        ft.commit();
     }
+}

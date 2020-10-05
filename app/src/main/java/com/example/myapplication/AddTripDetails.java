@@ -40,6 +40,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -57,6 +58,8 @@ public class AddTripDetails extends AppCompatActivity {
     String sType;
     double lat1 = 0, long1 = 0,lat2 = 0, long2 = 0;
     int flag = 0;
+    List<Trip> trip_list;
+    boolean exist = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,8 +133,8 @@ public class AddTripDetails extends AppCompatActivity {
         String[] vehType = new String[]{
                 "SUV-auto",
                 "SUV-manual",
-                "Saloon-auto",
-                "Saloon-manual",
+                "Sedan-auto",
+                "Sedan-manual",
                 "Hatchback-auto",
                 "Hatchback-manual",
                 "Bike"
@@ -167,6 +170,22 @@ public class AddTripDetails extends AppCompatActivity {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         trip = new Trip();
+        trip_list = new ArrayList<>();
+
+        dataRef = FirebaseDatabase.getInstance().getReference();
+        dataRef.child("Trips").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childSnapshot:snapshot.getChildren()) {
+                    Trip trip1 = childSnapshot.getValue(Trip.class);
+                    trip_list.add(trip1);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
         final String[] latestKey = new String[1];
@@ -197,7 +216,21 @@ public class AddTripDetails extends AppCompatActivity {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dataRef = FirebaseDatabase.getInstance().getReference().child("Trips");
+                dataRef = FirebaseDatabase.getInstance().getReference();
+                dataRef.child("Trips").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot childSnapshot:snapshot.getChildren()) {
+                            Trip trip1 = childSnapshot.getValue(Trip.class);
+                            trip_list.add(trip1);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                dataRef = FirebaseDatabase.getInstance().getReference();
                 try {
                     if (TextUtils.isEmpty(inLocation.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Location must be entered", Toast.LENGTH_SHORT).show();
@@ -210,6 +243,7 @@ public class AddTripDetails extends AppCompatActivity {
                     else if (TextUtils.isEmpty(editDrivetrainDrop.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Drivetrain must be entered", Toast.LENGTH_SHORT).show();
                     else {
+                        dataRef = dataRef.child("Trips");
                         trip.setVehicleType(editVehicleTypeDrop.getText().toString().trim());
                         trip.setLocation(inLocation.getText().toString().trim());
                         trip.setDestination(inDestination.getText().toString().trim());
@@ -217,28 +251,39 @@ public class AddTripDetails extends AppCompatActivity {
                         trip.setDrivetrain(editDrivetrainDrop.getText().toString().trim());
                         trip.setId(GetTripId(latestKey[0]));
                         SetFuelCost(trip.getDistance(),trip.getVehicleType(),trip.getDrivetrain(),trip.getFuelType());
-                        dataRef.child(Integer.toString(GetTripId(latestKey[0])).trim()).setValue(trip);
-                        Toast.makeText(getApplicationContext(), "Successfully Inserted", Toast.LENGTH_SHORT).show();
-                        ClearControls();
+                        exist = false;
+                        for (int j=0; j < trip_list.size(); j++){
+                            if(inDestination.getText().toString().trim().equals(trip_list.get(j).getDestination().trim())
+                                    && inLocation.getText().toString().trim().equals(trip_list.get(j).getLocation().trim()))
+                                exist = true;
+                        }
+                        if (!exist) {
+                            dataRef.child(Integer.toString(GetTripId(latestKey[0])).trim()).setValue(trip);
+                            Toast.makeText(getApplicationContext(), "Successfully Inserted", Toast.LENGTH_SHORT).show();
+                            ClearControls();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Trip already exists",Toast.LENGTH_SHORT).show();
+                        }
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Id", Toast.LENGTH_SHORT).show();
                 }
-                Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
-                last.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot childDataSnapshot : snapshot.getChildren()) {
-                            latestKey[0] = childDataSnapshot.getKey();
+                    Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
+                    last.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for (DataSnapshot childDataSnapshot : snapshot.getChildren()) {
+                                latestKey[0] = childDataSnapshot.getKey();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
+                        }
 
-                });
+                    });
             }
         });
 
@@ -252,17 +297,120 @@ public class AddTripDetails extends AppCompatActivity {
     }
 
     private void SetFuelCost(Double distance,String vehicleType,String drivetrain,String fuelType){
-        switch (fuelType){
-            case "Diesel":
-                if(vehicleType.equals("SUV-auto") && (drivetrain.equals("4WD") || drivetrain.equals("AWD"))){
-                    trip.setFuelCost(Double.parseDouble(df.format(distance/5.0*128.0 )));
+        switch (vehicleType){
+            case "SUV-auto":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 5.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 5.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 15.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 17.0 * 138.0)));
                 }
                 break;
-            case "Petrol":
+            case "SUV-manual":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 7.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 17.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 9.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 9.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
                 break;
-            case "Hybrid":
+            case "Sedan-auto":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 10.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 10.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 17.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
+                break;
+            case "Sedan-manual":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
+                    else if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
+                    else
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
+                }
+                break;
+            case "Hatchback-auto":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
+                }
+                break;
+            case "Hatchback-manual":
+                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
+                }
+                else{
+                    if (fuelType.equals("Diesel"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 128.0)));
+                    if (fuelType.equals("Petrol"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 138.0)));
+                    if (fuelType.equals("Hybrid"))
+                        trip.setFuelCost(Double.parseDouble(df.format(distance / 23.0 * 138.0)));
+                }
+                break;
+            case "Bike":
+                trip.setFuelCost(Double.parseDouble(df.format(distance / 30.0 * 138.0)));
                 break;
             default:
+                trip.setFuelCost(0.0);
                 break;
         }
     }
