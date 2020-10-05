@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_locations"
+            android:title="Locations" />
+        <item
+            android:id="@+id/nav_hotels"
+            android:title="Hotels" />
+        <item
+            android:id="@+id/nav_gear"
+            android:title="Camping Gear" />
+        <item
+            android:id="@+id/nav_trips"
+            android:title="My Trips" />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Profile">
+            <Menu>
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="Login" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="Logout" />
+            </Menu>
+
+        </item>
+    </group>
+
+    <item
+        android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Share"
+            />
+            <item
+                android:id="@+id/nav_rate"
+                android:title="Rate us"
+                />
+        </menu>
+    </item>
+</menu>

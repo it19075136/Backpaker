@@ -7,7 +7,9 @@
     android:background="@drawable/background_gradient"
     android:id="@+id/drawerLayout"
     >
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -111,11 +113,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_nav"
+        app:menu="@menu/main_nav"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
