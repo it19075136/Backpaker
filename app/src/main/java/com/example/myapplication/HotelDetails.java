@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.net.URI;
 
 public class HotelDetails extends AppCompatActivity {
 
@@ -47,6 +50,7 @@ public class HotelDetails extends AppCompatActivity {
 
         htlName.setText(intent.getStringExtra("hotelNm"));
 
+
         Query db = FirebaseDatabase.getInstance().getReference("Hotel").orderByChild("htlName").equalTo(htlName.getText().toString());
         db.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,7 +63,6 @@ public class HotelDetails extends AppCompatActivity {
                     loc.setText(htl.getLoca());
                     type.setText(htl.getRoomtype());
                     Des.setText(htl.getDes());
-
 
 //                    int r1 = childSnap.child("roomCount").getValue(Integer.class);
 //                    rmCou.setText(String.valueOf(r1));
@@ -82,6 +85,7 @@ public class HotelDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         
     }
 }

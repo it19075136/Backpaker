@@ -52,7 +52,7 @@
     <TextView
         android:id="@+id/rmType"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="30dp"
         android:text="@string/roomType" />
 
     <LinearLayout
@@ -89,13 +89,17 @@
         android:id="@+id/btnBook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bookNow" />
+        android:fontFamily="casual"
+        android:text="@string/bookNow"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnCon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="@string/conHtl" />
+        android:fontFamily="casual"
+        android:text="@string/conHtl"
+        android:textSize="18sp" />
 
 </LinearLayout>
