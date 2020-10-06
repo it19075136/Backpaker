@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.service.autofill.Dataset;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -109,4 +110,18 @@ public class HotelFinder extends AppCompatActivity {
         });
 
         }
+    public void onStart(){
+        super.onStart();
+        Log.i("Lifecycle","OnCreate() invoked");
+    }
+
+    public void  onRestart(){
+        super.onRestart();
+        Log.i("Lifecycle", "OnRestart() invoked");
+    }
+
+    public void onResume(){
+        super.onResume();
+        Log.i("Lifecycle", "OnResume() invoked");
+    }
     }

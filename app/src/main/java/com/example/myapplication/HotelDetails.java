@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -101,5 +102,20 @@ public class HotelDetails extends AppCompatActivity {
         });
 
         
+    }
+
+    public void onStart(){
+        super.onStart();
+        Log.i("Lifecycle","OnCreate() invoked");
+    }
+
+    public void  onRestart(){
+        super.onRestart();
+        Log.i("Lifecycle", "OnRestart() invoked");
+    }
+
+    public void onResume(){
+        super.onResume();
+        Log.i("Lifecycle", "OnResume() invoked");
     }
 }
