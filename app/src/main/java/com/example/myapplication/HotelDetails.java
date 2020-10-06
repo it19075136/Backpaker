@@ -46,7 +46,7 @@ public class HotelDetails extends AppCompatActivity {
         bookNow = findViewById(R.id.btnBook);
         callHtl = findViewById(R.id.btnCon);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         htlName.setText(intent.getStringExtra("hotelNm"));
 
@@ -83,6 +83,20 @@ public class HotelDetails extends AppCompatActivity {
                 Intent intent = new Intent(HotelDetails.this,BookHotel.class);
                 intent.putExtra("htlnm",htlName.getText().toString());
                 startActivity(intent);
+            }
+        });
+
+        callHtl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone = ConNo.getText().toString();
+                if (phone.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "No Valid Phone Number Available...", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:"+ phone));
+                    startActivity(intent);
+                }
             }
         });
 
