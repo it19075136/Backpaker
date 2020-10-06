@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.DecimalFormat;
@@ -94,11 +94,12 @@ public class EditTripFragment extends Fragment {
             public void onClick(View view) {
                 String ChildRef = "Trips/"+id;
                 dbRef = FirebaseDatabase.getInstance().getReference().child(ChildRef);
-                dbRef.addValueEventListener(new ValueEventListener() {
+                Query q = FirebaseDatabase.getInstance().getReference().child("Trips").orderByChild("id").equalTo(Integer.parseInt(id));
+                q.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot childSnap:snapshot.getChildren()) {
-                            trip = snapshot.getValue(Trip.class);
+                            trip = childSnap.getValue(Trip.class);
                         }
                         if(!upVehicleType.getText().toString().trim().equals(""))
                             dbRef.child("vehicleType").setValue(upVehicleType.getText().toString().trim());
@@ -108,7 +109,7 @@ public class EditTripFragment extends Fragment {
                             dbRef.child("drivetrain").setValue(upDrivetrain.getText().toString().trim());
                         SetFuelCost(trip.getDistance(),upVehicleType.getText().toString(),upDrivetrain.getText().toString(),upFuelType.getText().toString());
                         dbRef.child("fuelCost").setValue(trip.getFuelCost());
-                        Toast.makeText(getContext(),"Successfully Updated",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(),"Successfully Updated",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -177,6 +178,7 @@ public class EditTripFragment extends Fragment {
                 }
                 break;
             case "Sedan-manual":
+            case "Hatchback-auto":
                 if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
@@ -188,27 +190,9 @@ public class EditTripFragment extends Fragment {
                 else{
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
+                    else if (fuelType.equals("Petrol"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
-                }
-                break;
-            case "Hatchback-auto":
-                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
-                    if (fuelType.equals("Diesel"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
-                }
-                else{
-                    if (fuelType.equals("Diesel"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
+                    else
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
                 }
                 break;
@@ -216,17 +200,17 @@ public class EditTripFragment extends Fragment {
                 if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
+                    else if (fuelType.equals("Petrol"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
+                    else
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
                 }
                 else{
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
+                    else if (fuelType.equals("Petrol"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
+                    else
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 23.0 * 138.0)));
                 }
                 break;

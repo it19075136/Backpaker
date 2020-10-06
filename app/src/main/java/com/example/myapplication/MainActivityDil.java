@@ -52,14 +52,14 @@ public class MainActivityDil extends AppCompatActivity {
 
         btnLogOut = findViewById(R.id.buttonlogout);
 
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivityDil.this,logIn.class);
-                startActivity(intent);
-            }
-        });
+//        btnLogOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(MainActivityDil.this,logIn.class);
+//                startActivity(intent);
+//            }
+//        });
 
         databaseReference = FirebaseDatabase.getInstance().getReference("gear");
 

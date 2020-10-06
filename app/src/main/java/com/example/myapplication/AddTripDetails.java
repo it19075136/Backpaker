@@ -353,6 +353,7 @@ public class AddTripDetails extends AppCompatActivity {
                 }
                 break;
             case "Sedan-manual":
+            case "Hatchback-auto":
                 if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
@@ -364,27 +365,9 @@ public class AddTripDetails extends AppCompatActivity {
                 else{
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
+                    else if (fuelType.equals("Petrol"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
-                }
-                break;
-            case "Hatchback-auto":
-                if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
-                    if (fuelType.equals("Diesel"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 12.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 19.0 * 138.0)));
-                }
-                else{
-                    if (fuelType.equals("Diesel"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
-                        trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
+                    else
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
                 }
                 break;
@@ -392,17 +375,17 @@ public class AddTripDetails extends AppCompatActivity {
                 if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
+                    else if (fuelType.equals("Petrol"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 14.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
+                    else
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 21.0 * 138.0)));
                 }
                 else{
                     if (fuelType.equals("Diesel"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 128.0)));
-                    if (fuelType.equals("Petrol"))
+                    else if (fuelType.equals("Petrol"))
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 16.0 * 138.0)));
-                    if (fuelType.equals("Hybrid"))
+                    else
                         trip.setFuelCost(Double.parseDouble(df.format(distance / 23.0 * 138.0)));
                 }
                 break;
