@@ -48,18 +48,18 @@ public class MainActivityDil extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_maindil);
 
         btnLogOut = findViewById(R.id.buttonlogout);
 
-//        btnLogOut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FirebaseAuth.getInstance().signOut();
-//                Intent intent = new Intent(MainActivityDil.this,logIn.class);
-//                startActivity(intent);
-//            }
-//        });
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivityDil.this,logIn.class);
+                startActivity(intent);
+            }
+        });
 
         databaseReference = FirebaseDatabase.getInstance().getReference("gear");
 
@@ -82,20 +82,6 @@ public class MainActivityDil extends AppCompatActivity {
 
             gearList = new ArrayList<>();
 
-//         message = "Camping gear items for location "+ txtlocation.getText().toString().trim()+", We would like you send an invoice for the following items to this Email address "+
-//                 txtmail.getText().toString().trim()+"lamps = "+spinnerlamps.getSelectedItem().toString()+
-//                 ", cups & plates="+spinnercups.getSelectedItem().toString()+", Mallet & Hammer ="+spinnerhammer.getSelectedItem().toString()+
-//                 ", Tables ="+spinnertables.getSelectedItem().toString()+", Mobile gas Device ="+spinnergas.getSelectedItem().toString()+
-//                 ", Tent Size ="+spinnertentsize.getSelectedItem().toString()+", How many tents ="+spinnertentnumber.getSelectedItem().toString()+
-//                 ". Thank You.";
-
-//         lamps = spinnerlamps.getSelectedItem().toString();
-//         cups = spinnercups.getSelectedItem().toString();
-//         hammer = spinnerhammer.getSelectedItem().toString();
-//         tables = spinnertables.getSelectedItem().toString();
-//         gas = spinnergas.getSelectedItem().toString();
-//         tentsize = spinnertentsize.getSelectedItem().toString();
-//         tentnumber = spinnertentnumber.getSelectedItem().toString();
 
 
 
