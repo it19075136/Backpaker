@@ -14,7 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ViewMyTrips" />
-        <activity android:name=".AddTripDetails">
+        <activity android:name=".loggedIn"/>
+        <activity android:name=".LocationDetail"/>
+        <activity android:name=".AddTripDetails"/>
+        <activity android:name=".HotelFinder"/>
+        <activity android:name=".MainActivityDil"/>
+        <activity android:name=".logIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

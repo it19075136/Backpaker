@@ -45,11 +45,11 @@ public class LocationDetail extends AppCompatActivity {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch sw;
     Boolean switchCheck = false;
-    List<String> trips;
+    List<String> locations;
     Bundle bundle = new Bundle();
     View view;
     Intent intent;
-    Button btnDelete;
+    Button btnDelete,CampGear,BookHotel,AddTrip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,9 +59,36 @@ public class LocationDetail extends AppCompatActivity {
 
         sw = findViewById(R.id.switch1);
         btnDelete = findViewById(R.id.btnDel);
+        CampGear = findViewById(R.id.btnGear);
+        BookHotel = findViewById(R.id.btnHotel);
+        AddTrip = findViewById(R.id.btnTrip);
 
+        CampGear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iGear = new Intent(LocationDetail.this,MainActivityDil.class);
+                startActivity(iGear);
+            }
+        });
+
+        BookHotel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iHotel = new Intent(LocationDetail.this,HotelFinder.class);
+                startActivity(iHotel);
+            }
+        });
+
+        AddTrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent iTrip = new Intent(LocationDetail.this,AddTripDetails.class);
+                startActivity(iTrip);
+            }
+        });
+        
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
-        trips = new ArrayList<>();
+        locations = new ArrayList<>();
 
         dbRef = FirebaseDatabase.getInstance().getReference();
 
