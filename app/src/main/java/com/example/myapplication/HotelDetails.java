@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -46,7 +47,7 @@ public class HotelDetails extends AppCompatActivity {
         bookNow = findViewById(R.id.btnBook);
         callHtl = findViewById(R.id.btnCon);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         htlName.setText(intent.getStringExtra("hotelNm"));
 
@@ -86,6 +87,35 @@ public class HotelDetails extends AppCompatActivity {
             }
         });
 
+        callHtl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone = ConNo.getText().toString();
+                if (phone.isEmpty()){
+                    Toast.makeText(getApplicationContext(), "No Valid Phone Number Available...", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:"+ phone));
+                    startActivity(intent);
+                }
+            }
+        });
+
         
+    }
+
+    public void onStart(){
+        super.onStart();
+        Log.i("Lifecycle","OnCreate() invoked");
+    }
+
+    public void  onRestart(){
+        super.onRestart();
+        Log.i("Lifecycle", "OnRestart() invoked");
+    }
+
+    public void onResume(){
+        super.onResume();
+        Log.i("Lifecycle", "OnResume() invoked");
     }
 }
