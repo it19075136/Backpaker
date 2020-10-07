@@ -45,7 +45,7 @@ public class loggedIn extends AppCompatActivity {
                 if(mFirebaseUser != null)
                 {
                     Toast.makeText(loggedIn.this,"You are Logged In",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(loggedIn.this, LocationDetail.class);
+                    Intent intent = new Intent(loggedIn.this, PickTravelModeActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(loggedIn.this,"Please Log In",Toast.LENGTH_SHORT).show();
@@ -77,8 +77,12 @@ public class loggedIn extends AppCompatActivity {
                             {
                                 Toast.makeText(loggedIn.this, "Login Error, Please Login Again!", Toast.LENGTH_SHORT).show();
                             }else{
-                                Intent intoHome  = new Intent(loggedIn.this, LocationDetail.class);
-                                startActivity(intoHome);
+                                Intent intent;
+                                if(mFirebaseAuth.getCurrentUser().getEmail().equals("admin@backpacker.com"))
+                                    intent = new Intent(loggedIn.this, HomeActivity.class);
+                                else
+                                intent  = new Intent(loggedIn.this, PickTravelModeActivity.class);
+                                startActivity(intent);
                             }
                         }
                     });

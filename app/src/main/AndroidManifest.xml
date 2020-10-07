@@ -21,6 +21,8 @@
         <activity android:name=".HotelFinder"/>
         <activity android:name=".MainActivityDil"/>
         <activity android:name=".PickTravelModeActivity"/>
+        <activity android:name=".AddTravelLocationActivity"/>
+        <activity android:name=".HomeActivity"/>
         <activity android:name=".logIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

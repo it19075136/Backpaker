@@ -2,6 +2,9 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -28,6 +31,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,6 +54,7 @@ public class LocationDetail extends AppCompatActivity {
     View view;
     Intent intent;
     Button btnDelete,CampGear,BookHotel,AddTrip;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +67,7 @@ public class LocationDetail extends AppCompatActivity {
         CampGear = findViewById(R.id.btnGear);
         BookHotel = findViewById(R.id.btnHotel);
         AddTrip = findViewById(R.id.btnTrip);
+        drawerLayout = findViewById(R.id.drawerLayout);
 
         CampGear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +163,82 @@ public class LocationDetail extends AppCompatActivity {
             ft.commit();
         }
     }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    private static void redirectActivity(Activity activity, Class aClass){
+        //Initialize intent
+        Intent intent = new Intent(activity,aClass);
+        //set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //start activity
+        activity.startActivity(intent);
+    }
+
+    private void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ClickHotels(View view){
+        redirectActivity(this,HotelFinder.class);
+    }
+
+    public void ClickTrips(View view){
+        redirectActivity(this,ViewMyTrips.class);
+    }
+
+    public void ClickGear(View view){
+        redirectActivity(this,MainActivityDil.class);
+    }
+
+    public void ClickLocs(View view){
+        redirectActivity(this,PickTravelModeActivity.class);
+    }
+
+    public void ClickLogout(View view){
+        Logout(this);
+    }
+
+    private void Logout(final Activity activity) {
+        //Initialize alert dialog
+        AlertDialog.Builder builder =  new AlertDialog.Builder(activity);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
+                activity.finishAffinity();
+                Intent intent = new Intent(activity,loggedIn.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
+    public void ClickMenu(View view) {
+        openDrawer(drawerLayout);
+    }
+
+    public void ClickLogo(View view) {
+        closeDrawer(drawerLayout);
+    }
+
 }
 
 
