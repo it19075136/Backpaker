@@ -3,14 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00000000"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HardFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+
+        <!--                <com.google.android.material.textfield.TextInputLayout-->
+        <!--                    >-->
+        <!--                    <AutoCompleteTextView>-->
+
+        <!--                    </AutoCompleteTextView>-->
+        <!--                </com.google.android.material.textfield.TextInputLayout>-->
+        <GridView
+            android:id="@+id/hardlocview"
+            android:numColumns="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp">
+
+
+        </GridView>
+
+    </RelativeLayout>
 <!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
 <!--        android:id="@+id/hard_layout"-->
 <!--        android:layout_width="match_parent"-->
