@@ -36,7 +36,7 @@ public class PickTravelModeActivity extends AppCompatActivity {
 
 //    Button btnEas,btnModerate,btnHard;
 //Button easyAddLoca;
-private FloatingActionButton easyAddLoca;
+private Button easyAddLoca;
     private Toolbar toolbar;
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -82,18 +82,18 @@ private FloatingActionButton easyAddLoca;
 //        btnModerate = findViewById(R.id.btnModerate);
 //        btnHard = findViewById(R.id.btnHard);
 //
-//        easyAddLoca = findViewById(R.id.easy_floBtn);
-//        easyAddLoca.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                dbRef = FirebaseDatabase.getInstance().getReference().child("locations/");
-////                if (TextUtils.isEmpty(txtName.getText().toString())){
-////                    Toast.makeText(getApplicationContext(), "Empty Name", Toast.LENGTH_SHORT).show();
-////                }
-//                Intent intent = new Intent(PickTravelModeActivity.this,AddTravelLocationActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        easyAddLoca = findViewById(R.id.easy_Btn);
+        easyAddLoca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                dbRef = FirebaseDatabase.getInstance().getReference().child("locations/");
+//                if (TextUtils.isEmpty(txtName.getText().toString())){
+//                    Toast.makeText(getApplicationContext(), "Empty Name", Toast.LENGTH_SHORT).show();
+//                }
+                Intent intent = new Intent(PickTravelModeActivity.this,AddTravelLocationActivity.class);
+                startActivity(intent);
+            }
+        });
 //        easyAddLoca.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
