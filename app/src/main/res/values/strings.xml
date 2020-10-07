@@ -1,5 +1,5 @@
 <resources>
-<string name="app_name">Spark</string>
+<string name="app_name">Back Packer</string>
     <string name="RegHotel">Hotel Register</string>
     <string name="htlName">Hotel Name</string>
     <string name="roomCount">Room Count</string>
