@@ -40,6 +40,7 @@
                 <GridView
                     android:id="@+id/easylocview"
                     android:numColumns="1"
+                    android:layout_marginBottom="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:horizontalSpacing="1dp"
@@ -49,6 +50,7 @@
                 </GridView>
 
             </RelativeLayout>
+
 
 
 <!--&lt;!&ndash;            android:columCount="1"&ndash;&gt;-->

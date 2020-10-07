@@ -23,6 +23,7 @@
         <GridView
             android:id="@+id/moderatelocview"
             android:numColumns="1"
+            android:layout_marginBottom="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:horizontalSpacing="1dp"
