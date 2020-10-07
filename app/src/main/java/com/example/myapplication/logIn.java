@@ -53,7 +53,7 @@ public class logIn extends AppCompatActivity {
                             if (!task.isSuccessful()) {
                                 Toast.makeText(logIn.this, "Signup Unsuccessful,Please Try Again", Toast.LENGTH_SHORT).show();
                             } else {
-                                startActivity(new Intent(logIn.this, LocationDetail.class));
+                                startActivity(new Intent(logIn.this, PickTravelModeActivity.class));
                             }
                         }
                     });

@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                         else{
                             htl.setRoomtype("Both AC and NON-AC");
                         }
-                        htl.setDes(des.getText().toString().toString().trim());
+                        htl.setDes(des.getText().toString().trim());
                         htl.setId(GetHotelId(latestKey[0]));
                         dbRef.child(Integer.toString(GetHotelId(latestKey[0])).trim()).setValue(htl);
                         //dbRef.child("htl1").setValue(htl);
@@ -189,8 +189,7 @@ public class MainActivity extends AppCompatActivity {
         btnUpd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference();
-                dbRef.child("Hotel/".concat(htl.getId().toString()));
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Hotel/".concat(htl.getId().toString()));
                 dbRef.child("htlName").setValue(htlName.getText().toString().trim());
                 dbRef.child("phone").setValue(cont.getText().toString().trim());
                 dbRef.child("email").setValue(mail.getText().toString().trim());

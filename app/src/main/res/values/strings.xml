@@ -169,4 +169,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txtUpdate">Update</string>
+    <string name="locations">Locations</string>
+    <string name="hotels">Hotels</string>
+    <string name="camping_gear">Camping Gear</string>
+    <string name="my_trips">My Trips</string>
+    <string name="logout">Logout</string>
 </resources>
