@@ -40,8 +40,6 @@ public class MainActivityDil extends AppCompatActivity {
     ListView listViewGear;
     List<campingGear> gearList;
 
-    Button btnLogOut;
-    FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
 
@@ -50,16 +48,16 @@ public class MainActivityDil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maindil);
 
-        btnLogOut = findViewById(R.id.buttonlogout);
-
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(MainActivityDil.this,logIn.class);
-                startActivity(intent);
-            }
-        });
+//        btnLogOut = findViewById(R.id.buttonlogout);
+//
+//        btnLogOut.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(MainActivityDil.this,logIn.class);
+//                startActivity(intent);
+//            }
+//        });
 
         databaseReference = FirebaseDatabase.getInstance().getReference("gear");
 

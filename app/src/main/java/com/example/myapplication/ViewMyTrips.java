@@ -1,7 +1,12 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +24,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +47,7 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
     Query db;
     TextInputLayout destinationSelector;
     AutoCompleteTextView destDrop;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,7 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_my_trips);
 
-        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        drawerLayout = findViewById(R.id.drawerLayout);
 
         trips = new ArrayList<>();
 
@@ -77,13 +84,6 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
         );
 
         destDrop.setAdapter(DestinationAdapter);
-
-        findViewById(R.id.navigation).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
 
 
         sw = findViewById(R.id.switch1);
@@ -165,4 +165,80 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
         ft.replace(R.id.fragment, frag);
         ft.commit();
     }
+
+    private void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    private static void redirectActivity(Activity activity,Class aClass){
+        //Initialize intent
+        Intent intent = new Intent(activity,aClass);
+        //set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //start activity
+        activity.startActivity(intent);
+    }
+
+    public void ClickHotels(View view){
+        redirectActivity(this,HotelFinder.class);
+    }
+
+    public void ClickTrips(View view){
+        redirectActivity(this,ViewMyTrips.class);
+    }
+
+    public void ClickGear(View view){
+        redirectActivity(this,MainActivityDil.class);
+    }
+
+    public void ClickLocs(View view){
+        redirectActivity(this,PickTravelModeActivity.class);
+    }
+
+    public void ClickLogout(View view){
+        Logout(this);
+    }
+
+    private void Logout(final Activity activity) {
+        //Initialize alert dialog
+        AlertDialog.Builder builder =  new AlertDialog.Builder(activity);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
+                activity.finishAffinity();
+                Intent intent = new Intent(activity,logIn.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
+    public void ClickMenu(View view) {
+        openDrawer(drawerLayout);
+    }
+
+    public void ClickLogo(View view) {
+        closeDrawer(drawerLayout);
+    }
+
 }
