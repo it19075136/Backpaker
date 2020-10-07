@@ -214,7 +214,7 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
             public void onClick(DialogInterface dialogInterface, int i) {
                 FirebaseAuth.getInstance().signOut();
                 activity.finishAffinity();
-                Intent intent = new Intent(activity,logIn.class);
+                Intent intent = new Intent(activity,loggedIn.class);
                 startActivity(intent);
             }
         });

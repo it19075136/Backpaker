@@ -4,8 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -31,6 +36,7 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -60,6 +66,7 @@ public class AddTripDetails extends AppCompatActivity {
     int flag = 0;
     List<Trip> trip_list;
     boolean exist = false;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +88,7 @@ public class AddTripDetails extends AppCompatActivity {
         editVehicleTypeDrop = findViewById(R.id.editVehicleTypeDrop);
         inDestination = findViewById(R.id.upDestination);
 
+        drawerLayout = findViewById(R.id.drawerLayout);
         //Initialize places
         Places.initialize(getApplicationContext(), "AIzaSyBA4NJujf77g_GZs6gOYm2Ic6tiK-xncKQ");
 
@@ -539,6 +547,81 @@ public class AddTripDetails extends AppCompatActivity {
 
     private int GetTripId(String lkey){
         return Integer.parseInt(lkey)+1;
+    }
+
+    private void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    private static void redirectActivity(Activity activity, Class aClass){
+        //Initialize intent
+        Intent intent = new Intent(activity,aClass);
+        //set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //start activity
+        activity.startActivity(intent);
+    }
+
+    public void ClickHotels(View view){
+        redirectActivity(this,HotelFinder.class);
+    }
+
+    public void ClickTrips(View view){
+        redirectActivity(this,ViewMyTrips.class);
+    }
+
+    public void ClickGear(View view){
+        redirectActivity(this,MainActivityDil.class);
+    }
+
+    public void ClickLocs(View view){
+        redirectActivity(this,PickTravelModeActivity.class);
+    }
+
+    public void ClickLogout(View view){
+        Logout(this);
+    }
+
+    private void Logout(final Activity activity) {
+        //Initialize alert dialog
+        AlertDialog.Builder builder =  new AlertDialog.Builder(activity);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
+                activity.finishAffinity();
+                Intent intent = new Intent(activity,loggedIn.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
+    public void ClickMenu(View view) {
+        openDrawer(drawerLayout);
+    }
+
+    public void ClickLogo(View view) {
+        closeDrawer(drawerLayout);
     }
 
 }
