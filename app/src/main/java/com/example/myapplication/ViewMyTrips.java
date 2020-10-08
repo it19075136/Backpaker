@@ -48,6 +48,7 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
     TextInputLayout destinationSelector;
     AutoCompleteTextView destDrop;
     DrawerLayout drawerLayout;
+    String uId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +59,13 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
         drawerLayout = findViewById(R.id.drawerLayout);
 
         trips = new ArrayList<>();
+        uId = FirebaseAuth.getInstance().getUid();
 
         destinationSelector = findViewById(R.id.destinationSelector);
         destDrop = findViewById(R.id.destinationDrop);
 
         dbRef =  FirebaseDatabase.getInstance().getReference();
-        dbRef.child("Trips").addValueEventListener(new ValueEventListener() {
+        dbRef.child("Trips/".concat(uId)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 trips.clear();
@@ -101,7 +103,7 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
                 String SelectedTrip = destDrop.getText().toString();
                 String[] Selected = SelectedTrip.split("-", 2);
                 Toast.makeText(getApplicationContext(),Selected[1],Toast.LENGTH_SHORT).show();
-                db = FirebaseDatabase.getInstance().getReference("Trips").orderByChild("destination").equalTo(Selected[1]);
+                db = FirebaseDatabase.getInstance().getReference("Trips/".concat(uId)).orderByChild("destination").equalTo(Selected[1]);
                 db.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -147,8 +149,8 @@ public class ViewMyTrips extends AppCompatActivity implements ViewTripFragment.o
     }
 
     @Override
-    public void DeleteEvent(String s) {
-        trips.remove(s);
+    public void DeleteEvent(String d,String l) {
+        trips.remove(l.concat("-".concat(d)));
         ArrayAdapter<String> DestinationAdapter = new ArrayAdapter<>(
                 ViewMyTrips.this, R.layout.type_dropdown,
                 trips
