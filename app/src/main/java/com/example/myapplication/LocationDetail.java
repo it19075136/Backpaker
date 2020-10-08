@@ -55,6 +55,7 @@ public class LocationDetail extends AppCompatActivity {
     Intent intent;
     Button btnDelete,CampGear,BookHotel,AddTrip;
     DrawerLayout drawerLayout;
+    Location location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,16 +108,18 @@ public class LocationDetail extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot childSnap:dataSnapshot.getChildren()){
-                    Location location = childSnap.getValue(Location.class);
-                    bundle.putString("locationName",location.getLocationName());
-                    bundle.putString("route",location.getRoute());
-                    bundle.putString("note",location.getNote());
-                    bundle.putString("accommondation",location.getAccommondation());
-                    bundle.putString("NOofDays",location.getNOofDays());
-                    bundle.putString("roadCondition",location.getRoadCondition());
-                    bundle.putString("Weather",location.getWeather());
-                    bundle.putString("permission",location.getPermission());
+                     location = childSnap.getValue(Location.class);
+
                 }
+                bundle.putString("locationName",location.getLocationName().toString());
+                bundle.putString("route",location.getRoute().toString());
+                bundle.putString("note",location.getNote().toString());
+                bundle.putString("accommondation",location.getAccommondation().toString());
+                bundle.putString("NOofDays",location.getNOofDays().toString());
+                bundle.putString("roadCondition",location.getRoadCondition().toString());
+                bundle.putString("Weather",location.getWeather().toString());
+                bundle.putString("permission",location.getPermission().toString());
+                ChangeFragment(view);
             }
 
             @Override
