@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
@@ -65,10 +68,16 @@ public class ViewTripFragment extends Fragment{
 
         uId = FirebaseAuth.getInstance().getUid();
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         if (this.getArguments() != null){
             String distFormat = this.getArguments().getString("distance");
             if (distFormat != null)
-            distFormat = String.format(Locale.getDefault(),"%2d Kms",(int)(Double.parseDouble(distFormat)/1));
+                distFormat = String.format(Locale.getDefault(),"%2d Kms",(int)(Double.parseDouble(distFormat)/1));
             viewDistance.setText(distFormat);
             viewLocation.setText(this.getArguments().getString("location"));
             viewDrivetrain.setText(this.getArguments().getString("drivetrain"));
@@ -91,30 +100,28 @@ public class ViewTripFragment extends Fragment{
         }
 
         btnDelete.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dbRef =FirebaseDatabase.getInstance().getReference();
-                Query tripsQuery = dbRef.child("Trips/".concat(uId)).orderByChild("id").equalTo(Integer.parseInt(id));
-                tripsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
-                            childSnapshot.getRef().removeValue();
-                        }
-                    }
+                    public void onClick(View view) {
+                        dbRef =FirebaseDatabase.getInstance().getReference();
+                        Query tripsQuery = dbRef.child("Trips/".concat(uId)).orderByChild("id").equalTo(Integer.parseInt(id));
+                        tripsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
+                                    childSnapshot.getRef().removeValue();
+                                }
+                            }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
+                            }
+                        });
+                        Toast.makeText(getContext(), "Trip Deleted...", Toast.LENGTH_SHORT).show();
+                        deleteEventListener.DeleteEvent(viewDestination.getText().toString(),viewLocation.getText().toString());
                     }
-                });
-                Toast.makeText(getContext(), "Trip Deleted...", Toast.LENGTH_SHORT).show();
-                deleteEventListener.DeleteEvent(viewDestination.getText().toString(),viewLocation.getText().toString());
-            }
-        })
+                })
         );
 
-        return view;
     }
-
 }

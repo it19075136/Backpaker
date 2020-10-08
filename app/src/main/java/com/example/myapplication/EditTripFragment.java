@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -84,14 +85,20 @@ public class EditTripFragment extends Fragment {
         upFuelType.setAdapter(FuelTypeAdapter);
         upDrivetrain.setAdapter(DrivetrainAdapter);
 
+        uId = FirebaseAuth.getInstance().getUid();
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         if (this.getArguments() != null){
             upDrivetrain.setText(this.getArguments().getString("drivetrain"));
             upVehicleType.setText(this.getArguments().getString("vType"));
             upFuelType.setText(this.getArguments().getString("fType"));
         }
         final String id = this.getArguments().getString("id");
-        uId = FirebaseAuth.getInstance().getUid();
-
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -112,7 +119,7 @@ public class EditTripFragment extends Fragment {
                             dbRef.child("drivetrain").setValue(upDrivetrain.getText().toString().trim());
                         SetFuelCost(trip.getDistance(),upVehicleType.getText().toString(),upDrivetrain.getText().toString(),upFuelType.getText().toString());
                         dbRef.child("fuelCost").setValue(trip.getFuelCost());
-//                        Toast.makeText(getContext(),"Successfully Updated",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Successfully Updated",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -122,9 +129,9 @@ public class EditTripFragment extends Fragment {
                 });
             }
         });
-        return view;
     }
-    private void SetFuelCost(Double distance,String vehicleType,String drivetrain,String fuelType){
+
+    private void SetFuelCost(Double distance, String vehicleType, String drivetrain, String fuelType){
         switch (vehicleType){
             case "SUV-auto":
                 if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {
