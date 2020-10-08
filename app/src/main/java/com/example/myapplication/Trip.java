@@ -1,10 +1,17 @@
 package com.example.myapplication;
 
 public class Trip {
-    String Location, Destination, VehicleType, FuelType, Drivetrain, travelTime;
+    String Location, Destination, VehicleType, FuelType, Drivetrain, travelTime, Uid;
     Integer Id;
     Double distance,FuelCost;
 
+    public String getUid() {
+        return Uid;
+    }
+
+    public void setUid(String uid) {
+        Uid = uid;
+    }
 
     public Double getFuelCost() {
         return FuelCost;

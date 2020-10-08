@@ -67,6 +67,7 @@ public class AddTripDetails extends AppCompatActivity {
     List<Trip> trip_list;
     boolean exist = false;
     DrawerLayout drawerLayout;
+    String Uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +88,8 @@ public class AddTripDetails extends AppCompatActivity {
         inLocation = findViewById(R.id.upLocation);
         editVehicleTypeDrop = findViewById(R.id.editVehicleTypeDrop);
         inDestination = findViewById(R.id.upDestination);
+
+        Uid = FirebaseAuth.getInstance().getUid();
 
         drawerLayout = findViewById(R.id.drawerLayout);
         //Initialize places
@@ -181,7 +184,7 @@ public class AddTripDetails extends AppCompatActivity {
         trip_list = new ArrayList<>();
 
         dataRef = FirebaseDatabase.getInstance().getReference();
-        dataRef.child("Trips").addValueEventListener(new ValueEventListener() {
+        dataRef.child("Trips/".concat(Uid)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot childSnapshot:snapshot.getChildren()) {
@@ -195,7 +198,7 @@ public class AddTripDetails extends AppCompatActivity {
             }
         });
 
-        Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
+        Query last = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(Uid)).orderByKey().limitToLast(1);
         final String[] latestKey = new String[1];
         latestKey[0] = "0";
         last.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -225,7 +228,7 @@ public class AddTripDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataRef = FirebaseDatabase.getInstance().getReference();
-                dataRef.child("Trips").addValueEventListener(new ValueEventListener() {
+                dataRef.child("Trips/".concat(Uid)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot childSnapshot:snapshot.getChildren()) {
@@ -258,6 +261,7 @@ public class AddTripDetails extends AppCompatActivity {
                         trip.setFuelType(editFuelTypeDrop.getText().toString().trim());
                         trip.setDrivetrain(editDrivetrainDrop.getText().toString().trim());
                         trip.setId(GetTripId(latestKey[0]));
+                        trip.setUid(Uid);
                         SetFuelCost(trip.getDistance(),trip.getVehicleType(),trip.getDrivetrain(),trip.getFuelType());
                         exist = false;
                         for (int j=0; j < trip_list.size(); j++){
@@ -266,7 +270,7 @@ public class AddTripDetails extends AppCompatActivity {
                                 exist = true;
                         }
                         if (!exist) {
-                            dataRef.child(Integer.toString(GetTripId(latestKey[0])).trim()).setValue(trip);
+                            dataRef.child(Uid).child(Integer.toString(GetTripId(latestKey[0])).trim()).setValue(trip);
                             Toast.makeText(getApplicationContext(), "Successfully Inserted", Toast.LENGTH_SHORT).show();
                             ClearControls();
                     }
@@ -277,7 +281,7 @@ public class AddTripDetails extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Id", Toast.LENGTH_SHORT).show();
                 }
-                    Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
+                    Query last = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(Uid)).orderByKey().limitToLast(1);
                     last.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
