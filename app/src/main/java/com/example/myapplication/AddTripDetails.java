@@ -23,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
@@ -57,7 +58,7 @@ public class AddTripDetails extends AppCompatActivity {
     Trip trip;
     EditText inLocation, inDestination;
     DatabaseReference dataRef;
-    AutoCompleteTextView editVehicleTypeDrop, editFuelTypeDrop, editDrivetrainDrop;
+    Spinner editVehicleTypeDrop,editFuelTypeDrop, editDrivetrainDrop;
     TextInputLayout editVehicleType, editFuelType, editDrivetrain;
     private static DecimalFormat df = new DecimalFormat("0.00");
     FusedLocationProviderClient fusedLocationProviderClient; //fusedLocation object
@@ -130,18 +131,21 @@ public class AddTripDetails extends AppCompatActivity {
         });
 
         String[] drivetrain = new String[]{
+                "Select Drivetrain",
                 "4WD",
                 "2WD",
                 "AWD"
         };
 
         String[] fuelType = new String[]{
+                "Select Fuel Type",
                 "Diesel",
                 "Petrol",
                 "Hybrid"
         };
 
         String[] vehType = new String[]{
+                "Select Vehicle Type",
                 "SUV-auto",
                 "SUV-manual",
                 "Sedan-auto",
@@ -167,8 +171,11 @@ public class AddTripDetails extends AppCompatActivity {
         );
 
         editVehicleTypeDrop.setAdapter(VehTypeAdapter);
+        editVehicleTypeDrop.setSelection(0);
         editFuelTypeDrop.setAdapter(FuelTypeAdapter);
+        editFuelTypeDrop.setSelection(0);
         editDrivetrainDrop.setAdapter(DrivetrainAdapter);
+        editDrivetrainDrop.setSelection(0);
 
         save = findViewById(R.id.btnUpdate);
         reset = findViewById(R.id.btnReset);
@@ -247,19 +254,19 @@ public class AddTripDetails extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Location must be entered", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(inDestination.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Destination must be entered", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(editVehicleTypeDrop.getText().toString()))
+                    else if (TextUtils.isEmpty(editVehicleTypeDrop.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Vehicle Type must be entered", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(editFuelTypeDrop.getText().toString()))
+                    else if (TextUtils.isEmpty(editFuelTypeDrop.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Fuel Type must be entered", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(editDrivetrainDrop.getText().toString()))
+                    else if (TextUtils.isEmpty(editDrivetrainDrop.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Drivetrain must be entered", Toast.LENGTH_SHORT).show();
                     else {
                         dataRef = dataRef.child("Trips");
-                        trip.setVehicleType(editVehicleTypeDrop.getText().toString().trim());
+                        trip.setVehicleType(editVehicleTypeDrop.getSelectedItem().toString().trim());
                         trip.setLocation(inLocation.getText().toString().trim());
                         trip.setDestination(inDestination.getText().toString().trim());
-                        trip.setFuelType(editFuelTypeDrop.getText().toString().trim());
-                        trip.setDrivetrain(editDrivetrainDrop.getText().toString().trim());
+                        trip.setFuelType(editFuelTypeDrop.getSelectedItem().toString().trim());
+                        trip.setDrivetrain(editDrivetrainDrop.getSelectedItem().toString().trim());
                         trip.setId(GetTripId(latestKey[0]));
                         trip.setUid(Uid);
                         SetFuelCost(trip.getDistance(),trip.getVehicleType(),trip.getDrivetrain(),trip.getFuelType());
@@ -544,9 +551,9 @@ public class AddTripDetails extends AppCompatActivity {
     private void ClearControls(){
         inLocation.setText("");
         inDestination.setText("");
-        editVehicleTypeDrop.setText("");
-        editFuelTypeDrop.setText("");
-        editDrivetrainDrop.setText("");
+        editVehicleTypeDrop.setSelection(0);
+        editDrivetrainDrop.setSelection(0);
+        editFuelTypeDrop.setSelection(0);
     }
 
     private int GetTripId(String lkey){
