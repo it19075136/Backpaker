@@ -14,20 +14,20 @@
         >
 
 
-        <Button
-            android:id="@+id/btnDel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:layout_weight="1"
-            android:text="Delete"
-            app:backgroundTint="#D12B1F"
-            app:layout_constraintBottom_toTopOf="@+id/buttonLIst"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.728"
-            app:layout_constraintStart_toEndOf="@+id/switch1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+<!--        <Button-->
+<!--            android:id="@+id/btnDel"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="9dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="Delete"-->
+<!--            app:backgroundTint="#D12B1F"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/buttonLIst"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.728"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/switch1"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="1.0" />-->
 
         <ImageView
             android:id="@+id/navigation"
@@ -44,19 +44,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="ChangeFragment"
-            android:text="Edit Details"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.372"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+<!--        <Switch-->
+<!--            android:id="@+id/switch1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:onClick="ChangeFragment"-->
+<!--            android:text="Edit Details"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.372"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="UseSwitchCompatOrMaterialXml" />-->
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment"
@@ -72,11 +72,11 @@
             android:id="@+id/buttonLIst"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="55dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switch1">
+            app:layout_constraintTop_toTopOf="parent">
 
             <Button
                 android:id="@+id/btnGear"
