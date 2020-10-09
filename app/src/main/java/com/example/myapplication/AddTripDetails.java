@@ -4,8 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -18,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
@@ -31,6 +37,7 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,7 +58,7 @@ public class AddTripDetails extends AppCompatActivity {
     Trip trip;
     EditText inLocation, inDestination;
     DatabaseReference dataRef;
-    AutoCompleteTextView editVehicleTypeDrop, editFuelTypeDrop, editDrivetrainDrop;
+    Spinner editVehicleTypeDrop,editFuelTypeDrop, editDrivetrainDrop;
     TextInputLayout editVehicleType, editFuelType, editDrivetrain;
     private static DecimalFormat df = new DecimalFormat("0.00");
     FusedLocationProviderClient fusedLocationProviderClient; //fusedLocation object
@@ -60,6 +67,8 @@ public class AddTripDetails extends AppCompatActivity {
     int flag = 0;
     List<Trip> trip_list;
     boolean exist = false;
+    DrawerLayout drawerLayout;
+    String Uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +90,9 @@ public class AddTripDetails extends AppCompatActivity {
         editVehicleTypeDrop = findViewById(R.id.editVehicleTypeDrop);
         inDestination = findViewById(R.id.upDestination);
 
+        Uid = FirebaseAuth.getInstance().getUid();
+
+        drawerLayout = findViewById(R.id.drawerLayout);
         //Initialize places
         Places.initialize(getApplicationContext(), "AIzaSyBA4NJujf77g_GZs6gOYm2Ic6tiK-xncKQ");
 
@@ -119,18 +131,21 @@ public class AddTripDetails extends AppCompatActivity {
         });
 
         String[] drivetrain = new String[]{
+                "Select Drivetrain",
                 "4WD",
                 "2WD",
                 "AWD"
         };
 
         String[] fuelType = new String[]{
+                "Select Fuel Type",
                 "Diesel",
                 "Petrol",
                 "Hybrid"
         };
 
         String[] vehType = new String[]{
+                "Select Vehicle Type",
                 "SUV-auto",
                 "SUV-manual",
                 "Sedan-auto",
@@ -156,8 +171,11 @@ public class AddTripDetails extends AppCompatActivity {
         );
 
         editVehicleTypeDrop.setAdapter(VehTypeAdapter);
+        editVehicleTypeDrop.setSelection(0);
         editFuelTypeDrop.setAdapter(FuelTypeAdapter);
+        editFuelTypeDrop.setSelection(0);
         editDrivetrainDrop.setAdapter(DrivetrainAdapter);
+        editDrivetrainDrop.setSelection(0);
 
         save = findViewById(R.id.btnUpdate);
         reset = findViewById(R.id.btnReset);
@@ -173,7 +191,7 @@ public class AddTripDetails extends AppCompatActivity {
         trip_list = new ArrayList<>();
 
         dataRef = FirebaseDatabase.getInstance().getReference();
-        dataRef.child("Trips").addValueEventListener(new ValueEventListener() {
+        dataRef.child("Trips/".concat(Uid)).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot childSnapshot:snapshot.getChildren()) {
@@ -187,7 +205,7 @@ public class AddTripDetails extends AppCompatActivity {
             }
         });
 
-        Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
+        Query last = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(Uid)).orderByKey().limitToLast(1);
         final String[] latestKey = new String[1];
         latestKey[0] = "0";
         last.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -217,7 +235,7 @@ public class AddTripDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dataRef = FirebaseDatabase.getInstance().getReference();
-                dataRef.child("Trips").addValueEventListener(new ValueEventListener() {
+                dataRef.child("Trips/".concat(Uid)).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot childSnapshot:snapshot.getChildren()) {
@@ -236,20 +254,21 @@ public class AddTripDetails extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Location must be entered", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(inDestination.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Destination must be entered", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(editVehicleTypeDrop.getText().toString()))
+                    else if (TextUtils.isEmpty(editVehicleTypeDrop.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Vehicle Type must be entered", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(editFuelTypeDrop.getText().toString()))
+                    else if (TextUtils.isEmpty(editFuelTypeDrop.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Fuel Type must be entered", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(editDrivetrainDrop.getText().toString()))
+                    else if (TextUtils.isEmpty(editDrivetrainDrop.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Drivetrain must be entered", Toast.LENGTH_SHORT).show();
                     else {
                         dataRef = dataRef.child("Trips");
-                        trip.setVehicleType(editVehicleTypeDrop.getText().toString().trim());
+                        trip.setVehicleType(editVehicleTypeDrop.getSelectedItem().toString().trim());
                         trip.setLocation(inLocation.getText().toString().trim());
                         trip.setDestination(inDestination.getText().toString().trim());
-                        trip.setFuelType(editFuelTypeDrop.getText().toString().trim());
-                        trip.setDrivetrain(editDrivetrainDrop.getText().toString().trim());
+                        trip.setFuelType(editFuelTypeDrop.getSelectedItem().toString().trim());
+                        trip.setDrivetrain(editDrivetrainDrop.getSelectedItem().toString().trim());
                         trip.setId(GetTripId(latestKey[0]));
+                        trip.setUid(Uid);
                         SetFuelCost(trip.getDistance(),trip.getVehicleType(),trip.getDrivetrain(),trip.getFuelType());
                         exist = false;
                         for (int j=0; j < trip_list.size(); j++){
@@ -258,7 +277,7 @@ public class AddTripDetails extends AppCompatActivity {
                                 exist = true;
                         }
                         if (!exist) {
-                            dataRef.child(Integer.toString(GetTripId(latestKey[0])).trim()).setValue(trip);
+                            dataRef.child(Uid).child(Integer.toString(GetTripId(latestKey[0])).trim()).setValue(trip);
                             Toast.makeText(getApplicationContext(), "Successfully Inserted", Toast.LENGTH_SHORT).show();
                             ClearControls();
                     }
@@ -269,7 +288,7 @@ public class AddTripDetails extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid Id", Toast.LENGTH_SHORT).show();
                 }
-                    Query last = FirebaseDatabase.getInstance().getReference().child("Trips").orderByKey().limitToLast(1);
+                    Query last = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(Uid)).orderByKey().limitToLast(1);
                     last.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -532,13 +551,88 @@ public class AddTripDetails extends AppCompatActivity {
     private void ClearControls(){
         inLocation.setText("");
         inDestination.setText("");
-        editVehicleTypeDrop.setText("");
-        editFuelTypeDrop.setText("");
-        editDrivetrainDrop.setText("");
+        editVehicleTypeDrop.setSelection(0);
+        editDrivetrainDrop.setSelection(0);
+        editFuelTypeDrop.setSelection(0);
     }
 
     private int GetTripId(String lkey){
         return Integer.parseInt(lkey)+1;
+    }
+
+    private void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+            drawerLayout.closeDrawer(GravityCompat.START);
+    }
+
+    private static void redirectActivity(Activity activity, Class aClass){
+        //Initialize intent
+        Intent intent = new Intent(activity,aClass);
+        //set flag
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //start activity
+        activity.startActivity(intent);
+    }
+
+    public void ClickHotels(View view){
+        redirectActivity(this,HotelFinder.class);
+    }
+
+    public void ClickTrips(View view){
+        redirectActivity(this,ViewMyTrips.class);
+    }
+
+    public void ClickGear(View view){
+        redirectActivity(this,MainActivityDil.class);
+    }
+
+    public void ClickLocs(View view){
+        redirectActivity(this,PickTravelModeActivity.class);
+    }
+
+    public void ClickLogout(View view){
+        Logout(this);
+    }
+
+    private void Logout(final Activity activity) {
+        //Initialize alert dialog
+        AlertDialog.Builder builder =  new AlertDialog.Builder(activity);
+        builder.setTitle("Logout");
+        builder.setMessage("Are you sure you want to logout?");
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                FirebaseAuth.getInstance().signOut();
+                activity.finishAffinity();
+                Intent intent = new Intent(activity,loggedIn.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
+    public void ClickMenu(View view) {
+        openDrawer(drawerLayout);
+    }
+
+    public void ClickLogo(View view) {
+        closeDrawer(drawerLayout);
     }
 
 }

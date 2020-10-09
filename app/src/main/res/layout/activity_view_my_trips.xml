@@ -117,14 +117,6 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
 
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        android:id="@+id/navigationView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        app:headerLayout="@layout/header_nav"-->
-<!--        app:menu="@menu/main_nav"/>-->
-
     <RelativeLayout
         android:layout_width="300dp"
         android:layout_height="match_parent"

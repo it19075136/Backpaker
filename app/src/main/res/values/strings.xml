@@ -1,5 +1,5 @@
 <resources>
-<string name="app_name">Spark</string>
+<string name="app_name">BackPacker</string>
     <string name="RegHotel">Hotel Register</string>
     <string name="htlName">Hotel Name</string>
     <string name="roomCount">Room Count</string>
@@ -40,9 +40,9 @@
     <string name="ResetBtn">RESET</string>
     <string name="AddLocation">Enter Location</string>
     <string name="AddDest">Enter Destination</string>
-    <string name="AddVehType">Enter type of your vehicle</string>
-    <string name="AddFuelType">Enter Fuel Type</string>
-    <string name="AddDrivetrain">Enter Drivetrain</string>
+    <string name="AddVehType">Select type of your vehicle</string>
+    <string name="AddFuelType">Select Fuel Type</string>
+    <string name="AddDrivetrain">Select Drivetrain</string>
     <string name="ShowTrips">My Trips</string>
     <string name="TripDetails">Trip Details</string>
     <string name="ViewTrips">View Trips</string>
