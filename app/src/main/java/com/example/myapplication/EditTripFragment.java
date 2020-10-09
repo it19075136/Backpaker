@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,6 +32,7 @@ public class EditTripFragment extends Fragment {
     AutoCompleteTextView upVehicleType,upFuelType,upDrivetrain;
     Trip trip = new Trip();
     private static DecimalFormat df = new DecimalFormat("0.00");
+    String uId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,19 +85,26 @@ public class EditTripFragment extends Fragment {
         upFuelType.setAdapter(FuelTypeAdapter);
         upDrivetrain.setAdapter(DrivetrainAdapter);
 
+        uId = FirebaseAuth.getInstance().getUid();
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         if (this.getArguments() != null){
             upDrivetrain.setText(this.getArguments().getString("drivetrain"));
             upVehicleType.setText(this.getArguments().getString("vType"));
             upFuelType.setText(this.getArguments().getString("fType"));
         }
         final String id = this.getArguments().getString("id");
-
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String ChildRef = "Trips/"+id;
+                String ChildRef = "Trips/"+uId.concat("/"+id);
                 dbRef = FirebaseDatabase.getInstance().getReference().child(ChildRef);
-                Query q = FirebaseDatabase.getInstance().getReference().child("Trips").orderByChild("id").equalTo(Integer.parseInt(id));
+                Query q = FirebaseDatabase.getInstance().getReference().child("Trips/".concat(uId)).orderByChild("id").equalTo(Integer.parseInt(id));
                 q.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -109,7 +119,7 @@ public class EditTripFragment extends Fragment {
                             dbRef.child("drivetrain").setValue(upDrivetrain.getText().toString().trim());
                         SetFuelCost(trip.getDistance(),upVehicleType.getText().toString(),upDrivetrain.getText().toString(),upFuelType.getText().toString());
                         dbRef.child("fuelCost").setValue(trip.getFuelCost());
-                        Toast.makeText(getActivity().getApplicationContext(),"Successfully Updated",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(),"Successfully Updated",Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -119,9 +129,9 @@ public class EditTripFragment extends Fragment {
                 });
             }
         });
-        return view;
     }
-    private void SetFuelCost(Double distance,String vehicleType,String drivetrain,String fuelType){
+
+    private void SetFuelCost(Double distance, String vehicleType, String drivetrain, String fuelType){
         switch (vehicleType){
             case "SUV-auto":
                 if((drivetrain.equals("4WD") || drivetrain.equals("AWD"))) {

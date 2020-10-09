@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ViewMyTrips" />
-        <activity android:name=".loggedIn"/>
+        <activity android:name=".logIn"/>
         <activity android:name=".LocationDetail"/>
         <activity android:name=".AddTripDetails"/>
         <activity android:name=".HotelFinder"/>
@@ -23,7 +23,7 @@
         <activity android:name=".PickTravelModeActivity"/>
         <activity android:name=".AddTravelLocationActivity"/>
         <activity android:name=".HomeActivity"/>
-        <activity android:name=".logIn">
+        <activity android:name=".loggedIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
