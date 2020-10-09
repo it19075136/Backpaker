@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 public class Location {
-    private String locationName;
+    public String locationName;
     private String route;
     private String note;
     private String accommondation;

@@ -63,8 +63,8 @@ public class LocationDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_detail);
 
-        sw = findViewById(R.id.switch1);
-        btnDelete = findViewById(R.id.btnDel);
+//        sw = findViewById(R.id.switch1);
+//        btnDelete = findViewById(R.id.btnDel);
         CampGear = findViewById(R.id.btnGear);
         BookHotel = findViewById(R.id.btnHotel);
         AddTrip = findViewById(R.id.btnTrip);
@@ -128,43 +128,44 @@ public class LocationDetail extends AppCompatActivity {
             }
         });
 
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("location/".concat(locationName));
-                dbRef.removeValue();
-                Toast.makeText(getApplicationContext(),"Deleted Successfully",Toast.LENGTH_SHORT);
-                bundle.putString("checkDel","yes");
-            }
-        });
+//        btnDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                dbRef = FirebaseDatabase.getInstance().getReference().child("location/".concat(locationName));
+//                dbRef.removeValue();
+//                Toast.makeText(getApplicationContext(),"Deleted Successfully",Toast.LENGTH_SHORT);
+//                bundle.putString("checkDel","yes");
+//            }
+//        });
 
-        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                switchCheck = b;
-            }
-        });
+//        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                switchCheck = b;
+//            }
+//        });
         ChangeFragment(view);
     }
 
     public void ChangeFragment(View view) {
         Fragment frag;
 
-        if (switchCheck) {
-            frag = new EditLocationDetailsFragment();
-            FragmentManager fm = getSupportFragmentManager();
-            frag.setArguments(bundle);
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragment, frag);
-            ft.commit();
-        } else {
+//        if (switchCheck) {
+//            frag = new EditLocationDetailsFragment();
+//            FragmentManager fm = getSupportFragmentManager();
+//            frag.setArguments(bundle);
+//            FragmentTransaction ft = fm.beginTransaction();
+//            ft.replace(R.id.fragment, frag);
+//            ft.commit();
+//        }
+
             frag = new ViewLocationDetailsFragment();
             frag.setArguments(bundle);
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.fragment, frag);
             ft.commit();
-        }
+
     }
 
     private void closeDrawer(DrawerLayout drawerLayout) {
