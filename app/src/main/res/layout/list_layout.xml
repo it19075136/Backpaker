@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ABFA8E"
+        android:background="#FAFAFA"
         android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,14 +29,17 @@
                 android:gravity="center_horizontal"
                 android:paddingRight="-100dp"
                 android:text="Location :"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewlocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -50,19 +53,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:paddingRight="-40dp"
-
-                android:text="Email :"
+                android:paddingRight="0dp"
 
 
-                android:textAlignment="center" />
+                android:text="Email  :"
+
+
+                android:textAlignment="textEnd"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textAlignment="viewStart"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -79,14 +87,17 @@
                 android:paddingRight="-100dp"
                 android:text="Lamps :"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewlamps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -103,14 +114,17 @@
                 android:paddingRight="-60dp"
                 android:text="Cups and Plates :"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewcupsandplates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -127,14 +141,17 @@
                 android:paddingRight="-60dp"
                 android:text="Mallet and Hammer :"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewhammer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -151,14 +168,17 @@
                 android:paddingRight="-60dp"
                 android:text="How many Tables :"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewtables"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -175,14 +195,17 @@
                 android:paddingRight="-60dp"
                 android:text="Mobile Gas Device"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewgas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -199,14 +222,17 @@
                 android:paddingRight="-100dp"
                 android:text="Date :"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -223,14 +249,17 @@
                 android:paddingRight="-60dp"
                 android:text="Enter your tent size :"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewtentsize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
 
         <LinearLayout
@@ -247,14 +276,17 @@
                 android:paddingRight="-40dp"
                 android:text="How many tents do you need:"
 
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="#20BC06"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewtentnumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textColor="#20BC06" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

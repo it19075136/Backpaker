@@ -1,5 +1,5 @@
 <resources>
-<string name="app_name">BackPacker</string>
+    <string name="app_name">BackPacker</string>
     <string name="RegHotel">Hotel Register</string>
     <string name="htlName">Hotel Name</string>
     <string name="roomCount">Room Count</string>
@@ -28,7 +28,7 @@
     <string name="fdHotelHed">Find Your Hotel</string>
     <string name="search_bar">Add Your Location</string>
     <string name="htl_selector">Select Your Hotel</string>
-<string name="AddTripHeading">Add Trip Details</string>
+    <string name="AddTripHeading">Add Trip Details</string>
     <string name="YourLocation">Your Location</string>
     <string name="Destination">Destination</string>
     <string name="VehicleType">Vehicle Type</string>
@@ -51,7 +51,7 @@
     <string name="TravelTime">Travel Time</string>
     <string name="VehicleDetails">Vehicle Details</string>
     <string name="page_title">Trip Details</string>
-<string name="btnUpdateDetails">Update Details</string>
+    <string name="btnUpdateDetails">Update Details</string>
     <string name="diesel">Diesel</string>
     <string name="petrol">Petrol</string>
     <string name="hybrid">Hybrid</string>
