@@ -42,277 +42,299 @@
         android:text="Camping Gear Manager"
         android:textAllCaps="false"
         android:textColor="#08980A"
-        android:textSize="15dp"
+        android:textSize="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/navigation"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--    <ScrollView-->
+<!--        android:id="@+id/scrollView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="300dp"-->
+<!--        android:background="#00FFFFFF"-->
+<!--        android:padding="15dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="0dp"-->
+<!--                android:text="Location Name"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--                android:textSize="13dp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/txtlocationName"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="14dp"-->
+<!--                android:ems="10"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:hint="Enter location Name"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Email"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--                android:textSize="13dp" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/txtMail"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:ems="10"-->
+<!--                android:textSize="14dp"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:hint="Enter Your Email"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Lamps"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerLamps"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/lamps"-->
+<!--                android:gravity="center_horizontal"-->
+
+<!--                android:padding="10dp"-->
+<!--                android:spinnerMode="dropdown"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Cups And Plates"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerCups"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/cups"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView5"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Mallet Hammer"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerHammer"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/hammer"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="How Many Tables"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerTables"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/tables"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView7"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Mobile Gas Device"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnerGas"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/gas"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView8"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Date"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/txtDate"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:ems="10"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:hint="month/date/year"-->
+<!--                android:inputType="textPersonName"-->
+<!--                android:padding="10dp"-->
+<!--                android:textSize="14dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--                 />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView9"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:text="Enter your tent size"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="13dp"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnertentSize"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/tentSize"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView10"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textSize="13dp"-->
+<!--                android:text="How many tents do you need"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--            <Spinner-->
+<!--                android:id="@+id/spinnertentNumber"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="110dp"-->
+<!--                android:entries="@array/tentNumber"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10dp"-->
+<!--                android:textAlignment="center" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btnUpdate"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#0CDADA"-->
+<!--                android:text="Save" />-->
+
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+
     <ListView
         android:id="@+id/listViewGear"
-        android:layout_width="409dp"
-        android:layout_height="199dp"
+        android:layout_width="369dp"
+        android:layout_height="479dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintVertical_bias="0.0">
 
     </ListView>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
-        android:background="#00FFFFFF"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="0dp"
-                android:text="Location Name"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/txtlocationName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14dp"
-                android:ems="10"
-                android:gravity="center_horizontal"
-                android:hint="Enter location Name"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Email"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/txtMail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:textSize="14dp"
-                android:gravity="center_horizontal"
-                android:hint="Enter Your Email"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Lamps"
-                android:textSize="13dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnerLamps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/lamps"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Cups And Plates"
-                android:textSize="13dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnerCups"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/cups"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Mallet Hammer"
-                android:textSize="13dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnerHammer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/hammer"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="How Many Tables"
-                android:textSize="13dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnerTables"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/tables"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Mobile Gas Device"
-                android:textSize="13dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnerGas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/gas"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Date"
-                android:textSize="13dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <EditText
-                android:id="@+id/txtDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center_horizontal"
-                android:hint="month/date/year"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textSize="14dp"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                 />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="Enter your tent size"
-                android:textAlignment="center"
-                android:textSize="13dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnertentSize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/tentSize"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textSize="13dp"
-                android:text="How many tents do you need"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-            <Spinner
-                android:id="@+id/spinnertentNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/tentNumber"
-                android:gravity="center_horizontal"
-                android:padding="10dp"
-                android:textAlignment="center" />
-
-            <Button
-                android:id="@+id/btnUpdate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#0CDADA"
-                android:text="Save" />
-
-        </LinearLayout>
-    </ScrollView>
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add a new camping gear list"
-        android:textSize="15dp"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewGear"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.887" />
+
+    <Button
+        android:id="@+id/buttonaddcampinggear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Gear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.901" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

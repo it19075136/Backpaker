@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myapplication"
-    >
+    package="com.example.myapplication">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,24 +13,24 @@
         android:roundIcon="@drawable/logo5"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".addcampinggearmain"></activity>
         <activity android:name=".ViewMyTrips" />
-        <activity android:name=".logIn"/>
-        <activity android:name=".LocationDetail"/>
-        <activity android:name=".AddTripDetails"/>
-        <activity android:name=".HotelFinder"/>
-        <activity android:name=".MainActivityDil"/>
-        <activity android:name=".PickTravelModeActivity"/>
-        <activity android:name=".AddTravelLocationActivity"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".logIn" />
+        <activity android:name=".LocationDetail" />
+        <activity android:name=".AddTripDetails" />
+        <activity android:name=".HotelFinder" />
+        <activity android:name=".MainActivityDil" />
+        <activity android:name=".PickTravelModeActivity" />
+        <activity android:name=".AddTravelLocationActivity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".loggedIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".HotelDetails" />
         <activity android:name=".BookHotel" />
     </application>

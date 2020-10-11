@@ -111,4 +111,6 @@ public class loggedIn extends AppCompatActivity {
         super.onStart();
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
+
+    
 }

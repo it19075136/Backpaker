@@ -35,7 +35,7 @@ public class MainActivityDil extends AppCompatActivity {
 
     EditText txtlocation,txtmail,txtDate;
     Spinner spinnerlamps,spinnercups,spinnerhammer,spinnertables,spinnergas,spinnertentsize,spinnertentnumber;
-    Button btnsave;
+    Button btnsave,addcampinggear;
 
     String message;
 
@@ -80,6 +80,7 @@ public class MainActivityDil extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
 
         btnsave = (Button) findViewById(R.id.btnUpdate);
+        addcampinggear = (Button) findViewById(R.id.buttonaddcampinggear);
 
 
         listViewGear = (ListView) findViewById(R.id.listViewGear);
@@ -89,13 +90,13 @@ public class MainActivityDil extends AppCompatActivity {
 
 
 
-        btnsave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    AddGear();
-
-            }
-        });
+//        btnsave.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                    AddGear();
+//
+//            }
+//        });
 
         listViewGear.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -104,6 +105,14 @@ public class MainActivityDil extends AppCompatActivity {
 
                showUpdateGear(cgear.getCampId(),cgear.getLocationName(),cgear.getEmail(),cgear.getLamps(),cgear.getCupsPlates(),cgear.getMalletHammer(),cgear.getTables(),cgear.getGas(),cgear.getDate(),cgear.getTentSize(),cgear.getTentNumber());
                 return true;
+            }
+        });
+
+        addcampinggear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivityDil.this,addcampinggearmain.class);
+                startActivity(intent);
             }
         });
 
@@ -227,49 +236,49 @@ public class MainActivityDil extends AppCompatActivity {
         return true;
     }
 
-    private void AddGear(){
-        String location = txtlocation.getText().toString().trim();
-        String Email = txtmail.getText().toString().trim();
-        String Date = txtDate.getText().toString().trim();
-
-        String lamp = spinnerlamps.getSelectedItem().toString();
-        String  cups = spinnercups.getSelectedItem().toString();
-        String hammer = spinnerhammer.getSelectedItem().toString();
-        String tables = spinnertables.getSelectedItem().toString();
-        String gas = spinnergas.getSelectedItem().toString();
-        String tentSize = spinnertentsize.getSelectedItem().toString();
-        String tentNumber = spinnertentnumber.getSelectedItem().toString();
-
-        message = "Camping gear items for location "+ location+", We would like you send an invoice for the following items to this Email address   "+
-                Email+",   lamps = "+spinnerlamps.getSelectedItem().toString()+
-                ",    cups    &    plates   =   "+spinnercups.getSelectedItem().toString()+",    Mallet & Hammer    ="+spinnerhammer.getSelectedItem().toString()+
-                ",    Tables =   "+spinnertables.getSelectedItem().toString()+",    Mobile gas Device =   "+spinnergas.getSelectedItem().toString()+
-                ",    Tent Size =   "+spinnertentsize.getSelectedItem().toString()+",    How many tents =   "+spinnertentnumber.getSelectedItem().toString()+
-                ". Thank You.";
-
-
-
-        if(!TextUtils.isEmpty(location)){
-            String id = databaseReference.push().getKey();
-            campingGear cgear = new campingGear(id,location,Email,Date,lamp,cups,hammer,tables,gas,tentSize,tentNumber);
-
-            databaseReference.child(id).setValue(cgear);
-            Toast.makeText(this, "Camp Gear Added & select an email app to send the mail", Toast.LENGTH_SHORT).show();
-
-            Intent intent = new Intent(Intent.ACTION_SEND, Uri.fromParts(
-                    "mailto","email@email.com", null));
-            intent.putExtra(Intent.EXTRA_SUBJECT, txtlocation.getText().toString());
-            intent.putExtra(Intent.EXTRA_TEXT, message);
-            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
-
-        }else{
-            Toast.makeText(this, "You should enter a name", Toast.LENGTH_LONG).show();
-        }
-
-
-
-
-    }
+//    private void AddGear(){
+//        String location = txtlocation.getText().toString().trim();
+//        String Email = txtmail.getText().toString().trim();
+//        String Date = txtDate.getText().toString().trim();
+//
+//        String lamp = spinnerlamps.getSelectedItem().toString();
+//        String  cups = spinnercups.getSelectedItem().toString();
+//        String hammer = spinnerhammer.getSelectedItem().toString();
+//        String tables = spinnertables.getSelectedItem().toString();
+//        String gas = spinnergas.getSelectedItem().toString();
+//        String tentSize = spinnertentsize.getSelectedItem().toString();
+//        String tentNumber = spinnertentnumber.getSelectedItem().toString();
+//
+//        message = "Camping gear items for location "+ location+", We would like you send an invoice for the following items to this Email address   "+
+//                Email+",   lamps = "+spinnerlamps.getSelectedItem().toString()+
+//                ",    cups    &    plates   =   "+spinnercups.getSelectedItem().toString()+",    Mallet & Hammer    ="+spinnerhammer.getSelectedItem().toString()+
+//                ",    Tables =   "+spinnertables.getSelectedItem().toString()+",    Mobile gas Device =   "+spinnergas.getSelectedItem().toString()+
+//                ",    Tent Size =   "+spinnertentsize.getSelectedItem().toString()+",    How many tents =   "+spinnertentnumber.getSelectedItem().toString()+
+//                ". Thank You.";
+//
+//
+//
+//        if(!TextUtils.isEmpty(location)){
+//            String id = databaseReference.push().getKey();
+//            campingGear cgear = new campingGear(id,location,Email,Date,lamp,cups,hammer,tables,gas,tentSize,tentNumber);
+//
+//            databaseReference.child(id).setValue(cgear);
+//            Toast.makeText(this, "Camp Gear Added & select an email app to send the mail", Toast.LENGTH_SHORT).show();
+//
+//            Intent intent = new Intent(Intent.ACTION_SEND, Uri.fromParts(
+//                    "mailto","email@email.com", null));
+//            intent.putExtra(Intent.EXTRA_SUBJECT, txtlocation.getText().toString());
+//            intent.putExtra(Intent.EXTRA_TEXT, message);
+//            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+//
+//        }else{
+//            Toast.makeText(this, "You should enter a name", Toast.LENGTH_LONG).show();
+//        }
+//
+//
+//
+//
+//    }
 
     private void closeDrawer(DrawerLayout drawerLayout) {
         if(drawerLayout.isDrawerOpen(GravityCompat.START))
