@@ -264,16 +264,31 @@
                 android:id="@+id/btnUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#0CDADA"
-                android:text="Save" />
+                android:background="#1258a3"
+                android:text="Save"
+                app:backgroundTint="#58AAC3" />
 
             <Button
                 android:id="@+id/buttongeargoback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Go Back" />
+                android:text="Go Back"
+                app:backgroundTint="#009688"
+                app:iconTint="#FF9800" />
 
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a new Gear List"
+        android:textColor="#0B7280"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
