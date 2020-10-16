@@ -281,7 +281,7 @@ public class AddTravelLocationActivity extends AppCompatActivity {
     }
 
     private void clearControls() {
-        txtLocName.setText("");
+        txtLocName.setText(" ");
         txtLocType.setText("");
         txtnLocdays.setText("");
         txtnLocWeather.setText("");
